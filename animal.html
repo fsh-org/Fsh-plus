@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Animals - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="Fsh animal images">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+    <style>body,html{width:98vw;height:93vh}</style>
+  </head>
+  <body>
+    <script>
+      async function dow(type) {
+        document.getElementsByTagName('img')[0].src = '';
+        fetch('https://api.fsh.plus/animal?animal='+type).then(async p => {
+          p = await p.json();
+          document.getElementsByTagName('img')[0].src = p.image
+        })
+      }
+      fetch('https://api.fsh.plus/animal').then(async e => {
+        e = await e.text();
+        document.getElementsByTagName('select')[0].innerHTML = e.split('<br>').slice(1, e.split('<br>').length).map(t=>{return `<option value="${t.split(' ')[1].toLowerCase()}">${t.split(' ')[1]}</option>`}).join('')
+      })
+    </script>
+    <h1>Animals</h1>
+    <select>
+      <option value="">Loading...</option>
+    </select>
+    <button onclick="dow(document.getElementsByTagName('select')[0].value)">Get</button>
+    <br>
+    <img style="max-width:100%;max-height:100%;">
+  </body>
+</html>

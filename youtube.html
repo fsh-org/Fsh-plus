@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Youtube - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="Fsh youtube downloader">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+  </head>
+  <body>
+    <script>
+      async function dow(type) {
+        document.getElementsByTagName('video')[0].style.display = 'none'
+        document.getElementsByTagName('audio')[0].style.display = 'none'
+        document.getElementsByTagName('video')[0].pause()
+        document.getElementsByTagName('audio')[0].pause()
+
+        fetch('https://api.fsh.plus/'+type+'?id='+document.getElementById('id').value).then(async p => {
+          p = await p.json();
+          switch(type) {
+            case 'video':
+              document.getElementsByTagName('video')[0].src = p.video
+              document.getElementsByTagName('video')[0].style.display = '';
+              break;
+            case 'audio':
+              document.getElementsByTagName('audio')[0].src = p.audio
+              document.getElementsByTagName('audio')[0].style.display = '';
+              break;
+          }
+        })
+      }
+    </script>
+    <h1>Youtube</h1>
+    <label for="id">Id:</label>
+    <input id="id" placeholder="Youtube id here">
+    <br>
+    <button onclick="dow('video')">Video/Mp4</button>
+    <button onclick="dow('audio')">Audio/Mp3</button>
+    <br>
+    <video src="" controls style="display:none;max-width:25vw;"></video>
+    <br>
+    <audio src="" controls style="display:none;max-width:25vw;"></audio>
+  </body>
+</html>

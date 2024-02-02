@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AI - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="Fsh ai image/text generator">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+  </head>
+  <body>
+    <script>
+      async function dow(type) {
+        document.getElementsByTagName('p')[0].innerHTML = '';
+        document.getElementsByTagName('img')[0].src = '';
+
+        fetch('https://api.fsh.plus/'+type+'?text='+document.getElementById('id').value+(type=='imagine'?'&model=dall-e':'')).then(async p => {
+          p = await p.json();
+          switch(type) {
+            case 'imagine':
+              document.getElementsByTagName('img')[0].src = p.link
+              break;
+            case 'generate':
+              document.getElementsByTagName('p')[0].innerHTML = p.generated_text
+              break;
+          }
+        })
+      }
+      document.querySelector('input').addEventListener('input', function(){
+        this.style.width = this.value.length + "ch";
+      });
+    </script>
+    <h1>AI</h1>
+    <label for="id">Prompt:</label>
+    <input id="id" placeholder="Text for generation">
+    <br>
+    <label for="f">Type:</label>
+    <select id="f">
+      <option value="imagine">Image</option>
+      <option value="generate">Text</option>
+    </select>
+    <br>
+    <button onclick="dow(document.getElementsByTagName('select')[0].value)">Generate</button>
+    <br>
+    <p style="max-width: 85vw"></p>
+    <img style="max-height: 60vh;max-width: 70vw;">
+  </body>
+</html>
