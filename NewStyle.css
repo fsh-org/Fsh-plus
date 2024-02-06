@@ -30,10 +30,7 @@
 body {
   color: #fff;
   font-family: 'Lexend';
-  /*background: url('/background.svg');*/
-  /*background-size: 100%;*/
   background-color: #444;
-  /*background-attachment: fixed;*/
   caret-color: transparent;
 }
 img, a {
@@ -142,10 +139,10 @@ h2:has(> .Ismaller) {
 
 /* -- Links -- */
 a {
-  color: #8af;
+  color: #aaccff;
 }
 a:hover {
-  color: #88f;
+  color: #99bbee;
 }
 
 /* -- Input -- */
@@ -175,31 +172,4 @@ option {
 }
 option:disabled {
   background-color: #bbb;
-}/*
-input[type=range] {
-  height: 25px;
-  -webkit-appearance: none;
-  margin: 10px 0;
-  width: 100%;
-  background:none;
 }
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 10px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: #616161;
-  border-radius: 50px;
-}
-input[type=range]::-webkit-slider-thumb {
-  height: 20px;
-  width: 20px;
-  border-radius: 25px;
-  background: #ABABAB;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -5px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #616161;
-}*/
