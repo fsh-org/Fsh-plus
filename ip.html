@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IP - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="Fsh, get your IP">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+  </head>
+  <body>
+    <script>
+      fetch('https://api.fsh.plus/ip').then(async(res) => {
+        res = await res.json();
+        document.getElementById('public').innerHTML = res.public;
+        document.getElementById('local').innerHTML = res.ip;
+      })
+    </script>
+    <h1>IP</h1>
+    <p>Public: <label id="public">127.0.0.0</label></p>
+    <p>Local: <label id="local">127.0.0.0</label></p>
+  </body>
+</html>
