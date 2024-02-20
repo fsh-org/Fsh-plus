@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Images - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="Apply filters to images online - Fsh.">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+  </head>
+  <body>
+    <h1>Image editing</h1>
+    <input type="file">
+    <br>
+    <select>
+      <option>blur</option>
+      <option>communism</option>
+      <option>flip</option>
+      <option>flop</option>
+      <option>greyscale</option>
+      <option>gun</option>
+      <option>invert</option>
+      <option>jail</option>
+      <option>pixelate</option>
+    </select>
+    <button onclick="send()" accept="image/*">Filter</button>
+    <br>
+    <img>
+    <script>
+      function _arrayBufferToBase64( buffer ) {
+        var binary = '';
+        var bytes = new Uint8Array( buffer );
+        var len = bytes.byteLength;
+        for (var i = 0; i < len; i++) {
+          binary += String.fromCharCode( bytes[ i ] );
+        }
+        return window.btoa( binary );
+      }
+    
+      async function send() {
+        fetch('https://api.fsh.plus/'+document.querySelector('select').value, {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/octet-stream'
+          },
+          body: await document.querySelector('input[type="file"]').files[0].arrayBuffer()
+        }).then(async tt => {
+          tt = await tt.text();
+          try {
+            tt = JSON.parse(tt)
+          } catch (err) {
+            alert('An error occurred')
+          }
+          document.querySelector('img').src = tt.image;
+        })
+        .catch(err => {
+          alert('An error occurred')
+        })
+      }
+    </script>
+  </body>
+</html>
