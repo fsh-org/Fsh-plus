@@ -146,7 +146,7 @@ a:hover {
 }
 
 /* -- Input -- */
-input:not([type=range]), textarea {
+input:not([type=range]), textarea, input[type=file]::file-selector-button {
   color: #fff;
   padding: 5px;
   margin: 5px;
