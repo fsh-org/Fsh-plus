@@ -48,7 +48,16 @@
       </tr>
       <tr>
         <td>
-          <h2><img class="Ismaller" src="/fsh.png" alt="Fsh bot logo">Fsh Bot</h2>
+          <script>
+            let clo = 0;
+            function clock() {
+              clo += 1;
+              if (clo > 5) {
+                document.querySelector('link[rel="stylesheet"]').href = './style.css';
+              }
+            }
+          </script>
+          <h2><img class="Ismaller" src="/fsh.png" alt="Fsh bot logo" onclick="clock()">Fsh Bot</h2>
           <a href="https://github.com/Fsh-org/Fsh-bot"><img src="/github.png" target="_blank" alt="Github" height="20" style="border-radius:0.5rem"/></a>
           <a href="https://www.codefactor.io/repository/github/fsh-org/fsh-bot"><img src="https://www.codefactor.io/repository/github/fsh-org/fsh-bot/badge" target="_blank" alt="CodeFactor" height="20"/></a>
           <p>Fsh bot is a Discord bot with many features for you users that will bring activity to your server.<br>Fun, Utility, Music and more</p>
