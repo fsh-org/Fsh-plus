@@ -144,6 +144,7 @@ button {
 button:hover {
   background-color: #fff;
   color: #181818;
+  fill: #181818;
   cursor: pointer;
 }
 input:not([type=range]), textarea {
