@@ -29,8 +29,8 @@
 /* -- General text/background styling -- */
 body {
   color: #fff;
-  font-family: 'Lexend';
-  background-color: #444;
+  font-family: 'Lexend', 'Arial';
+  background-color: #181818;
   caret-color: transparent;
 }
 img, a {
@@ -50,22 +50,6 @@ p,h1,h2 {
 }
 details {
   cursor: pointer;
-}
-button {
-  color: #fff;
-  padding: 5px;
-  font-weight: bold;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  background-color: #0000;
-  transition: 500ms;
-}
-button:hover {
-  background-color: #fff4;
-  cursor: pointer;
-}
-button:active {
-  background-color: #aaa4;
 }
 
 /* -- Classes -- */
@@ -140,30 +124,48 @@ h2:has(> .Ismaller) {
 /* -- Links -- */
 a {
   color: #aaccff;
+  cursor: pointer;
 }
 a:hover {
   color: #99bbee;
 }
 
-/* -- Input -- */
+/* -- Inputs -- */
+button {
+  color: #fff;
+  padding: 5px;
+  font-weight: bold;
+  border: 2px #fff solid;
+  border-radius: 0.7rem;
+  background-color: transparent;
+  transition: 500ms;
+  outline: none;
+}
+button:hover {
+  background-color: #fff;
+  color: #181818;
+  cursor: pointer;
+}
 input:not([type=range]), textarea {
   color: #fff;
   padding: 5px;
   margin: 5px;
   font-weight: bold;
   font-size: 15px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  background-color: #0000;
+  border: 2px #fff solid;
+  border-radius: 0.7rem;
+  background-color: transparent;
   caret-color: auto;
+  outline: none;
 }
 input[type=file]::file-selector-button {
   color: #fff;
   font-weight: bold;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  background-color: #0000;
+  border: 2px #fff solid;
+  border-radius: 0.2rem;
+  background-color: transparent;
   caret-color: auto;
+  outline: none;
 }
 select {
   color: #fff;
@@ -171,13 +173,17 @@ select {
   margin: 5px;
   font-weight: bold;
   font-size: 15px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  background-color: #0000;
+  border: 2px #fff solid;
+  border-radius: 0.7rem;
+  background-color: transparent;
+  outline: none;
 }
 option {
   background-color: #444;
 }
 option:disabled {
   background-color: #bbb;
+}
+button:focus-within, input:focus-within, textarea:focus-within, select:focus-within {
+  outline: 1px solid #fff;
 }
