@@ -51,6 +51,10 @@ p,h1,h2 {
 details {
   cursor: pointer;
 }
+svg {
+  fill: #fff;
+  transition: 500ms;
+}
 
 /* -- Classes -- */
 .title {
