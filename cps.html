@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CPS Counter - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="Click Per Second counter">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+  </head>
+  <body>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      button {
+        width: 20vw;
+        height: 20vw;
+        border: #888 1px dashed;
+        border-radius: 1.5rem;
+      }
+      button:hover {
+        background-color: #6666;
+        color: #ddd;
+        border: #888 1px dashed;
+      }
+    </style>
+    <h1>CPS Counter</h1>
+    <div style="margin:10px"></div>
+    <button onclick="ed(this)">Click here to start<br></button>
+    <div style="margin:20px" id="last"><br></div>
+    <script>
+      let count = 0;
+      let date = Date.now();
+      let sync = 0;
+      let div = [];
+      let med = 0;
+      let bes = 0;
+      let be = 999;
+      function ed(that) {
+        count += 1;
+        if (count == 1) {
+          date = Date.now();
+        } else {
+          sync = Date.now() - date;
+          if (sync<be) be = sync;
+          div.push(sync)
+          if (div.length > 5) div.shift();
+          med = div.reduce((partialSum, a) => partialSum + a, 0)/div.length;
+          med = String(Math.floor((1000/med)*100)/100);
+          if (Number(med)>bes) bes = Number(med);
+          if (med.split('.')[1].length==1) med+='0'
+          if (med.split('.')[1].length==0) med+='.00'
+          document.getElementById('last').innerHTML = 'Diff: '+div.map(e=>e/1000).join(' | ')+'<br>Best: '+bes+'/sec ('+be/1000+')'
+          date = Date.now()
+        }
+        if (med == 0) {
+          that.innerHTML = 'Click again<br>';
+          return;
+        }
+        that.innerHTML = med+'/sec<br>'+(Number(med)<5 ? 'slow' : (Number(med)<10 ? 'medium' : 'fast'))
+      }
+    </script>
+  </body>
+</html>
