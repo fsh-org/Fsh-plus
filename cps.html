@@ -70,7 +70,7 @@
           that.innerHTML = 'Click again<br>';
           return;
         }
-        that.innerHTML = med+'/sec<br>'+(Number(med)<5 ? 'slow' : (Number(med)<10 ? 'medium' : 'fast'))
+        that.innerHTML = med+'/sec<br>'+(Number(med)<5 ? 'slow' : (Number(med)<10 ? 'medium' : (Number(med)<20 ? 'fast' : 'cheetah')))
       }
     </script>
   </body>
