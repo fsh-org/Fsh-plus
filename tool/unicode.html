@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Unicode - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta name="description" content="View unicode characters.">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+    <style>
+      body {
+        background: #181818;
+        color: #fff;
+      }
+      div {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 25px);
+        grid-gap: 5px;
+      }
+      label {
+        background: #303030;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px #888 solid;
+        border-radius: 0.25rem;
+        aspect-ratio: 1/1;
+        height: 24px;
+        cursor: pointer;
+        transition: 500ms;
+      }
+      label:hover {
+        background: #282828;
+        border: 1px #444 solid;
+      }
+      button {
+        width: fit-content;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="con">Loading</div>
+    <button onclick="more()">More</button>
+    <script>
+      let d = '';
+      let i = 0;
+      let j = 1;
+      while (i<500) {
+        d += '<label>'+String.fromCharCode(i)+'</label>';
+        i++
+      }
+      document.getElementById('con').innerHTML = d;
+      function more() {
+        j++
+        d = '';
+        while (i<j*500) {
+          d += '<label>'+String.fromCharCode(i)+'</label>';
+          i++
+        }
+        document.getElementById('con').insertAdjacentHTML('beforeend',d);
+      }
+    </script>
+  </body>
+</html>
