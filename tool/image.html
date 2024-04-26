@@ -19,9 +19,11 @@
     <input type="file">
     <br>
     <select>
-      <option>blur</option>
+      <option>ad</option>
       <option>bi</option>
+      <option>blur</option>
       <option>communism</option>
+      <option>deepfry</option>
       <option>flip</option>
       <option>flop</option>
       <option>gay</option>
@@ -30,11 +32,15 @@
       <option>invert</option>
       <option>jail</option>
       <option>pixelate</option>
+      <option>uncover</option>
+      <option>wanted</option>
     </select>
     <button onclick="send()" accept="image/*">Filter</button>
     <br>
     <img style="max-width:90vw;max-height:80vh;">
     <script>
+      let URL = 'https://api.fsh.plus/';
+
       function _arrayBufferToBase64( buffer ) {
         var binary = '';
         var bytes = new Uint8Array( buffer );
@@ -44,9 +50,9 @@
         }
         return window.btoa( binary );
       }
-    
+
       async function send() {
-        fetch('https://api.fsh.plus/'+document.querySelector('select').value, {
+        fetch(URL+document.querySelector('select').value, {
           method: 'post',
           headers: {
             'Content-Type': 'application/octet-stream'
