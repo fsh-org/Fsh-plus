@@ -26,11 +26,24 @@
   font-display: swap;
 }
 
+/* -- Colors -- */
+:root {
+  --bg-dim: #070707;
+  --bg: #181818;
+  --bg-light: #333333;
+
+  --text: #ffffff;
+  --text-dim: #bbbbbb;
+
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+}
+
 /* -- General text/background styling -- */
 body {
-  color: #fff;
+  color: var(--text);
   font-family: 'Lexend', 'Arial';
-  background-color: #181818;
+  background-color: var(--bg);
   caret-color: transparent;
 }
 img, a {
@@ -52,62 +65,8 @@ details {
   cursor: pointer;
 }
 svg {
-  fill: #fff;
+  fill: var(--text);
   transition: 500ms;
-}
-
-/* -- Classes -- */
-.title {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -15px;
-  font-size: 40px;
-  color: #fff;
-  text-decoration: hidden;
-}
-a:has(.title) {
-  text-decoration: none;
-}
-.title img {
-  margin-right: 10px;
-  width: 125px;
-}
-.title h1 {
-  margin: 0px;
-  font-weight: normal;
-}
-
-.Imid {
-  height: 80px;
-}
-.Ismall {
-  width: 40px;
-  height: 40px;
-}
-.Ismaller {
-  width: 30px;
-}
-h2:has(> .Ismaller) {
-  font-size: 35px;
-}
-.Ibig {
-  width: 160px;
-}
-
-.Tout {
-  border-collapse: collapse;
-}
-.Tout td {
-  border: 2px solid #ddd;
-  t-align: center;
-  padding: 10px;
-}
-
-.Thalf {
-  width: 50%;
-}
-.Thalf td {
-  width: 50%;
 }
 
 /* -- Scrollbar -- */
@@ -118,79 +77,79 @@ h2:has(> .Ismaller) {
   background: none;
 }
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--text-dim);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #333;
+  background-color: var(--bg-light);
 }
 
 /* -- Links -- */
 a {
-  color: #aaccff;
+  color: var(--cyan-400);
   cursor: pointer;
 }
 a:hover {
-  color: #99bbee;
+  color: var(--cyan-500);
 }
 
 /* -- Inputs -- */
 button {
-  color: #fff;
+  color: var(--text);
   padding: 5px;
   font-weight: bold;
-  border: 2px #fff solid;
+  border: 2px var(--text) solid;
   border-radius: 0.7rem;
   background-color: transparent;
   transition: 500ms;
   outline: none;
 }
 button:hover {
-  background-color: #fff;
-  color: #181818;
+  background-color: var(--text);
+  color: var(--bg);
   cursor: pointer;
 }
 button:hover svg {  
-  fill: #181818;
+  fill: var(--bg);
 }
 input:not([type=range]), textarea {
-  color: #fff;
+  color: var(--text);
   padding: 5px;
   margin: 5px;
   font-weight: bold;
   font-size: 15px;
-  border: 2px #fff solid;
+  border: 2px var(--text) solid;
   border-radius: 0.7rem;
   background-color: transparent;
   caret-color: auto;
   outline: none;
 }
 input[type=file]::file-selector-button {
-  color: #fff;
+  color: var(--text);
   font-weight: bold;
-  border: 2px #fff solid;
-  border-radius: 0.2rem;
+  border: 2px var(--text) solid;
+  border-radius: 0.3rem;
   background-color: transparent;
   caret-color: auto;
   outline: none;
 }
 select {
-  color: #fff;
+  color: var(--text);
   padding: 5px;
   margin: 5px;
   font-weight: bold;
   font-size: 15px;
-  border: 2px #fff solid;
+  border: 2px var(--) solid;
   border-radius: 0.7rem;
   background-color: transparent;
   outline: none;
 }
 option {
-  background-color: #444;
+  background-color: var(--bg);
 }
 option:disabled {
-  background-color: #bbb;
+  background-color: var(--bg-dim);
 }
 button:focus-within, input:focus-within, textarea:focus-within, select:focus-within {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--text);
 }
