@@ -86,11 +86,11 @@ svg {
 
 /* -- Links -- */
 a {
-  color: var(--cyan-400);
+  color: var(--sky-300);
   cursor: pointer;
 }
 a:hover {
-  color: var(--cyan-500);
+  color: var(--sky-400);
 }
 
 /* -- Inputs -- */
