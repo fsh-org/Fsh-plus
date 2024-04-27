@@ -139,7 +139,7 @@ select {
   margin: 5px;
   font-weight: bold;
   font-size: 15px;
-  border: 2px var(--) solid;
+  border: 2px var(--text) solid;
   border-radius: 0.7rem;
   background-color: transparent;
   outline: none;
