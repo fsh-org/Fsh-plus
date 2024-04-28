@@ -68,6 +68,25 @@ svg {
   fill: var(--text);
   transition: 500ms;
 }
+.title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -15px;
+  font-size: 40px;
+  color: var(--text);
+  text-decoration: hidden;
+}
+a:has(.title) {
+  text-decoration: none;
+}
+.title img {
+  margin-right: 10px;
+  width: 125px;
+}
+.title h1 {
+  margin: 0px;
+  font-weight: normal;
+}
 
 /* -- Scrollbar -- */
 ::-webkit-scrollbar {
