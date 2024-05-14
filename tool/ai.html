@@ -39,15 +39,15 @@
         <option value="generate">Text (Google Gemma)</option>
       </select>
     </span>
-    <button onclick="dow()">Generate</button>
+    <button onclick="dow(this)">Generate</button>
     <br>
     <p style="max-width: 85vw"></p>
     <img style="max-height: 60vh;max-width: 70vw;">
     <script>
-      async function dow() {
+      async function dow(that) {
         document.getElementsByTagName('p')[0].innerHTML = '';
         document.getElementsByTagName('img')[0].src = '';
-        this.innerHTML = 'Generating...';
+        that.innerHTML = 'Generating...';
 
         let text = document.getElementById('prompt').value;
         let type = document.getElementById('type').value;
@@ -65,7 +65,7 @@
               document.getElementsByTagName('p')[0].innerHTML = res.generated_text.split('<start_of_turn>model')[1];
               break;
           }
-          this.innerHTML = 'Generate';
+          that.innerHTML = 'Generate';
         })
       }
     </script>
