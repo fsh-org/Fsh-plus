@@ -13,42 +13,61 @@
     <meta property="og:image" content="https://fsh.plus/fsh.png"/>
     <meta name="theme-color" content="#a89c9b">
     <!-- ------------------ -->
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
-    <script>
-      async function dow(type) {
-        document.getElementsByTagName('p')[0].innerHTML = '';
-        document.getElementsByTagName('img')[0].src = '';
-
-        fetch('https://api.fsh.plus/'+type+'?text='+document.getElementById('id').value).then(async p => {
-          p = await p.json();
-          switch(type) {
-            case 'imagine':
-              document.getElementsByTagName('img')[0].src = p.link
-              break;
-            case 'generate':
-              document.getElementsByTagName('p')[0].innerHTML = p.generated_text
-              break;
-          }
-        })
-      }
-      document.querySelector('input').addEventListener('input', function(){
-        this.style.width = this.value.length + "ch";
-      });
-    </script>
-    <h1>AI</h1>
-    <label for="id">Prompt:</label>
-    <input id="id" placeholder="Text for generation">
-    <br>
-    <label for="f">Type:</label>
-    <select id="f">
-      <option value="imagine">Image</option>
-      <option value="generate">Text</option>
-    </select>
-    <br>
-    <button onclick="dow(document.getElementsByTagName('select')[0].value)">Generate</button>
+    <h1>Artificial Inteligence</h1>
+    <span>
+      <label for="prompt">Prompt:</label>
+      <input id="prompt" placeholder="Text for generation">
+    </span>
+    <span>
+      <label for="type">Model type:</label>
+      <select id="type">
+        <option value="imagine">Image (Realistic vision)</option>
+        <option value="generate">Text (Google Gemma)</option>
+      </select>
+    </span>
+    <button onclick="dow()">Generate</button>
     <br>
     <p style="max-width: 85vw"></p>
     <img style="max-height: 60vh;max-width: 70vw;">
+    <script>
+      async function dow() {
+        document.getElementsByTagName('p')[0].innerHTML = '';
+        document.getElementsByTagName('img')[0].src = '';
+        this.innerHTML = 'Generating...';
+
+        let text = document.getElementById('prompt').value;
+        let type = document.getElementById('type').value;
+        if (type=='generate') {
+          text = `<start_of_turn>user${text}<end_of_turn><start_of_turn>model`;
+        }
+
+        fetch(`https://api.fsh.plus/${type}?text=${text}`).then(async res => {
+          res = await res.json();
+          switch(type) {
+            case 'imagine':
+              document.getElementsByTagName('img')[0].src = res.link;
+              break;
+            case 'generate':
+              document.getElementsByTagName('p')[0].innerHTML = res.generated_text;
+              break;
+          }
+          this.innerHTML = 'Generate';
+        })
+      }
+    </script>
   </body>
 </html>
