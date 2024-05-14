@@ -20,7 +20,7 @@
         document.getElementsByTagName('p')[0].innerHTML = '';
         document.getElementsByTagName('img')[0].src = '';
 
-        fetch('https://api.fsh.plus/'+type+'?text='+document.getElementById('id').value+(type=='imagine'?'&model=dall-e':'')).then(async p => {
+        fetch('https://api.fsh.plus/'+type+'?text='+document.getElementById('id').value).then(async p => {
           p = await p.json();
           switch(type) {
             case 'imagine':
