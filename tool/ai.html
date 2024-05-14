@@ -62,7 +62,7 @@
               document.getElementsByTagName('img')[0].src = res.link;
               break;
             case 'generate':
-              document.getElementsByTagName('p')[0].innerHTML = res.generated_text;
+              document.getElementsByTagName('p')[0].innerHTML = res.generated_text.split('<start_of_turn>model')[1];
               break;
           }
           this.innerHTML = 'Generate';
