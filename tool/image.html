@@ -16,9 +16,9 @@
   </head>
   <body>
     <h1>Image editing</h1>
-    <input type="file">
+    <input type="file" aria-label="Image file input">
     <br>
-    <select>
+    <select aria-label="Image effect">
       <option>ad</option>
       <option>bi</option>
       <option>blur</option>
@@ -37,7 +37,7 @@
     </select>
     <button onclick="send()" accept="image/*">Filter</button>
     <br>
-    <img style="max-width:90vw;max-height:80vh;">
+    <img style="max-width:90vw;max-height:80vh;" alt="Image with applied effect">
     <script>
       let URL = 'https://api.fsh.plus/';
 
