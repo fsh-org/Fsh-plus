@@ -65,6 +65,16 @@
       .list div img {
         height: 20px;
       }
+
+      .devs {
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+        text-align: center;
+      }
+      .devs > * {
+        margin: 0;
+      } 
     </style>
   </head>
   <body>
@@ -217,15 +227,17 @@
       <li><a href="/tool/ip">Your IP</a></li>
     </ul>
     <h2>Made by</h2>
-    <div>
-      <img alt="Frost's profile picture" height="100" src="/media/pfp/frost.webp">
-      <h3>Frostzzone</h3>
-      <p>Backend dev</p>
-    </div>
-    <div>
-      <img alt="Inv's profile picture" height="100" src="/media/pfp/inv.webp">
-      <h3>Inventionpro</h3>
-      <p>Aro cat dev</p>
+    <div class="devs">
+      <div>
+        <img alt="Frost's profile picture" height="100" src="/media/pfp/frost.webp">
+        <h3>Frostzzone</h3>
+        <p>Backend dev</p>
+      </div>
+      <div>
+        <img alt="Inv's profile picture" height="100" src="/media/pfp/inv.webp">
+        <h3>Inventionpro</h3>
+        <p>Aro cat dev</p>
+      </div>
     </div>
     <br>
     <h2>Resources</h2>
