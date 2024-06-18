@@ -66,6 +66,7 @@ a:has(.title) {
 /* -- Dialog -- */
 dialog {
   padding: 10px;
+  color: var(--text);
   border-radius: 1rem;
   background-color: var(--bg);
   border: 2px var(--text) solid;
