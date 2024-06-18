@@ -29,10 +29,10 @@ img {
   -webkit-user-drag: none;
   -webkit-user-select: none;
 }
-p {
+h1, h2, p {
   margin: 2px;
 }
-h1, h2, h3, h4, h5, h6 {
+h3, h4, h5, h6 {
   margin-bottom: 2px;
   margin-top: 1em;
 }
