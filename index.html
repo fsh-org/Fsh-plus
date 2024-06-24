@@ -63,6 +63,11 @@
     </style>
   </head>
   <body>
+    <dialog open style="position:absolute;left:2;bottom:2;max-width:20vw;">
+      <button style="border:none;position:absolute;top:2px;right:2px;padding:0;" onclick="this.parentElement.close()">x</button>
+      <p>Try our new updated home experience!</p>
+      <a href="/newhome"><button>Try it</button></a>
+    </dialog>
     <table class="title">
       <tr>
         <td><video onclick="location.href=location.href+'game';" src="/fsh.webm" playsinline autoplay muted loop width="100" alt="Spining low quality fish"></video></td>
@@ -202,15 +207,6 @@
           <p>A lightweight & fast json database</p>
           <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
         </td>
-        <td>
-          <h2>FshApi</h2>
-          <a href="https://github.com/Fsh-org/FshApi"><img src="/github.png" target="_blank" alt="Github" height="20"/></a>
-          <img alt="NPM Version" src="https://img.shields.io/npm/v/fshapi">
-          <p>A wrapper for the Fsh api</p>
-          <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
-        </td>
-      </tr>
-      <tr>
         <td>
           <h2>Server HTMS</h2>
           <a href="https://github.com/Fsh-org/Server-HTMS"><img src="/github.png" target="_blank" alt="Github" height="20"/></a>
