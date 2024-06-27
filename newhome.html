@@ -38,15 +38,11 @@
 
       .list {
         height: fit-content;
-        width: fit-content;
-        max-width: calc(75vw + 60px);
-        min-width: 200px;
-        overflow-y: hidden;
-        overflow-x: auto;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin: 0 auto;
+		    width: fit-content;
+		    display: grid;
+		    gap: 10px;
+		    margin-inline: auto;
+		    grid-template-columns: repeat(3, 1fr);
       }
       .list div {
         width: 25vw;
