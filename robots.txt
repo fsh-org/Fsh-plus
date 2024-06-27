@@ -2,4 +2,5 @@ user-agent: *
 allow: /
 disallow: /tos
 disallow: /pp
+disallow: /game
 disallow: /geiger
