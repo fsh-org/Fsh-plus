@@ -22,7 +22,7 @@ body {
   font-family: 'Lexend', 'Arial';
 }
 img {
-  user-drag: none; 
+  user-drag: none;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
@@ -41,6 +41,7 @@ details {
 }
 svg {
   fill: var(--text);
+  stroke: var(--text);
   transition: 500ms;
 }
 .title {
@@ -116,8 +117,9 @@ button:hover {
   color: var(--bg);
   background-color: var(--text);
 }
-button:hover svg {  
+button:hover svg {
   fill: var(--bg);
+  stroke: var(--bg);
 }
 input:not([type=range]), textarea {
   margin: 5px;
