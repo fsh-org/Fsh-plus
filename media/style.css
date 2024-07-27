@@ -20,9 +20,11 @@
 /* -- General styling -- */
 body {
   color: var(--text-1);
-  caret-color: transparent;
   background-color: var(--bg-1);
   font-family: 'Lexend', 'Arial';
+  margin: 0px;
+  padding: 0px;
+  caret-color: transparent;
 }
 h1, h2, p {
   margin: 2px;
