@@ -1,0 +1,167 @@
+/* -- Main styling for fsh pages -- */
+
+/* -- Vars -- */
+@import url("https://fonts.googleapis.com/css?family=Lexend&display=swap");
+:root {
+  --bg-0: #0c0c0c;
+  --bg-1: #181818;
+  --bg-2: #252525;
+  --bg-3: #333333;
+
+  --text-0: #ffffff;
+  --text-1: #dddddd;
+  --text-2: #bbbbbb;
+  --text-3: #888888;
+
+  --accent-1: #38bdf8; /*Tailwind: sky 400*/
+  --accent-2: #0ea5e9; /*Tailwind: sky 500*/
+}
+
+/* -- General styling -- */
+body {
+  color: var(--text-1);
+  caret-color: transparent;
+  background-color: var(--bg-1);
+  font-family: 'Lexend', 'Arial';
+}
+h1, h2, p {
+  margin: 2px;
+}
+h3, h4, h5, h6 {
+  margin-bottom: 2px;
+  margin-top: 1em;
+}
+img {
+  user-drag: none;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+svg {
+  fill: var(--text-1);
+  stroke: var(--text-1);
+  transition: 500ms;
+}
+details {
+  cursor: pointer;
+}
+
+/* -- Dialogs -- */
+dialog {
+  padding: 10px;
+  color: var(--text-1);
+  border-radius: 1rem;
+  background-color: var(--bg-1);
+  border: 2px var(--text-1) solid;
+}
+::backdrop {
+  backdrop-filter: blur(2px);
+}
+
+/* -- Scrollbar -- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--text-3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bg-3);
+}
+
+/* -- Fsh ownership title -- */
+.title {
+  font-size: 40px;
+  margin-top: -15px;
+  color: var(--text-0);
+  text-decoration: hidden;
+}
+a:has(.title) {
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+}
+.title h1 {
+  margin: 0px;
+  font-weight: normal;
+  margin-top: -12px;
+}
+
+/* -- Links -- */
+a {
+  cursor: pointer;
+  color: var(--accent-1);
+}
+a:hover {
+  color: var(--accent-2);
+}
+
+/* -- Inputs -- */
+button {
+  padding: 5px;
+  outline: none;
+  font-weight: bold;
+  transition: 500ms;
+  color: var(--text-1);
+  border-radius: 0.7rem;
+  border: 2px var(--text-1) solid;
+  background-color: transparent;
+}
+button:hover {
+  cursor: pointer;
+  color: var(--bg-1);
+  background-color: var(--text-1);
+}
+button:hover svg {
+  fill: var(--bg-1);
+  stroke: var(--bg-1);
+}
+input:not([type=range]), textarea {
+  margin: 5px;
+  padding: 5px;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  caret-color: auto;
+  color: var(--text-1);
+  border-radius: 0.7rem;
+  border: 2px var(--text-1) solid;
+  background-color: transparent;
+}
+input[type=file]::file-selector-button {
+  outline: none;
+  font-weight: bold;
+  caret-color: auto;
+  color: var(--text-1);
+  border-radius: 0.3rem;
+  border: 2px var(--text-1) solid;
+  background-color: transparent;
+}
+select {
+  margin: 5px;
+  padding: 5px;
+  outline: none;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--text-1);
+  border-radius: 0.7rem;
+  border: 2px var(--text-1) solid;
+  background-color: transparent;
+}
+option {
+  background-color: var(--bg-1);
+}
+option:disabled {
+  background-color: var(--bg-0);
+}
+button:focus-within, input:focus-within, textarea:focus-within, select:focus-within {
+  outline: 1px solid var(--text-0);
+}
