@@ -95,7 +95,7 @@
         transform: rotateX(-90deg);
       }
     </style>
-    <script>
+    <script defer>
       document.body.onmousemove = function(event) {
         Array.from(document.querySelectorAll('.list div')).forEach(e => {
           let elem = e.getBoundingClientRect();
@@ -105,6 +105,13 @@
           let yp = (y / elem.height) * elem.height;
           e.style.background = 'radial-gradient(circle at '+xp+'px '+yp+'px, var(--bg-3) 0%, var(--bg-2) 80%)';
         });
+        let nav = document.querySelector('nav');
+        let elem = nav.getBoundingClientRect();
+        let x = event.clientX - elem.left;
+        let y = event.clientY - elem.top;
+        let xp = (x / elem.width) * elem.width;
+        let yp = (y / elem.height) * elem.height;
+        nav.style.background = 'radial-gradient(circle at '+xp+'px '+yp+'px, var(--bg-3) 0%, var(--bg-0) 12%)';
       }
     </script>
   </head>
