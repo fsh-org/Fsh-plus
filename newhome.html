@@ -47,7 +47,7 @@
         flex-shrink: 0;
         position: relative;
         background: var(--bg-2);
-        background: linear-gradient(135deg, var(--bg-3) 20%, var(--bg-2) 100%);
+        background: radial-gradient(circle at top left, var(--bg-3) 0%, var(--bg-2) 80%);
       }
       .list div span {
         display: flex;
@@ -95,6 +95,18 @@
         transform: rotateX(-90deg);
       }
     </style>
+    <script>
+      document.body.onmousemove = function(event) {
+        Array.from(document.querySelectorAll('.list div')).forEach(e => {
+          let elem = e.getBoundingClientRect();
+          let x = event.clientX - elem.left;
+          let y = event.clientY - elem.top;
+          let xp = (x / elem.width) * elem.width;
+          let yp = (y / elem.height) * elem.height;
+          e.style.background = 'radial-gradient(circle at '+xp+'px '+yp+'px, var(--bg-3) 0%, var(--bg-2) 80%)';
+        });
+      }
+    </script>
   </head>
   <body>
     <nav>
