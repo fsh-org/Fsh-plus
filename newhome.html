@@ -136,13 +136,13 @@
         let rotateText = () => {
           let currentWord = words[currentWordIndex];
           let nextWord = (currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1]);
+          nextWord.parentElement.parentElement.style.translate = `-${nextWord.getBoundingClientRect().width/2}px`;
           Array.from(currentWord.children).forEach((letter, i) => {
             setTimeout(() => {
               letter.className = "letter out";
             }, i * 80);
           });
           nextWord.style.opacity = "1";
-          nextWord.parentElement.parentElement.style.translate = `-${nextWord.getBoundingClientRect().width/2}px`;
           Array.from(nextWord.children).forEach((letter, i) => {
             letter.className = "letter behind";
             setTimeout(() => {
