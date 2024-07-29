@@ -142,13 +142,13 @@
             }, i * 80);
           });
           nextWord.style.opacity = "1";
+          nextWord.parentElement.parentElement.style.translate = `-${nextWord.getBoundingClientRect().width/2}px`;
           Array.from(nextWord.children).forEach((letter, i) => {
             letter.className = "letter behind";
             setTimeout(() => {
               letter.className = "letter in";
             }, 340 + i * 80);
           });
-          nextWord.parentElement.parentElement.style.translate = `-${nextWord.getBoundingClientRect().width/2}px`;
           currentWordIndex = (currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1);
         };
         setInterval(rotateText, 4000);
