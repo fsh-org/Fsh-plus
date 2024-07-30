@@ -49,6 +49,11 @@ svg {
 details {
   cursor: pointer;
 }
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+  }
+}
 
 /* -- Dialogs -- */
 dialog {
