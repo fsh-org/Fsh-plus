@@ -33,7 +33,7 @@
       const p = setInterval(() => {
         document.getElementById("geiger").play()
           .then(() => {
-            clearInterval(tryToPlay);
+            clearInterval(p);
           })
           .catch(error => {
             console.info('User has not interacted with document yet.');
