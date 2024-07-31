@@ -34,7 +34,7 @@
         try {
           document.getElementById("geiger").play()
         } catch (err) {
-          setTimeout(p, 500)
+          setTimeout(function(){p()}, 500)
         }
       }
       p()
