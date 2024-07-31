@@ -4,3 +4,6 @@ disallow: /tos
 disallow: /pp
 disallow: /game
 disallow: /geiger
+
+user-agent: france
+disallow: /baguette

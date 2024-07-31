@@ -3,10 +3,10 @@
   <head>
     <title>Fsh?</title>
     <!-- Boiler plate------ -->
-    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <link rel="icon" href="/fsh.png" type="image/png">
     <meta name="description" content="Fsh?">
     <!-- ------- -->
-    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <link rel="stylesheet" href="/media/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,21 +15,29 @@
     <!-- ------------------ -->
   </head>
   <body>
-    ----- Chat log -----<br>
-    [4wg]: Do you copy?<br>
-    [9uy]: I copy.<br>
+    <p>----- Chat log -----<br>
+    [9uy]: Do you copy?<br>
+    [4wg]: I copy.<br>
+    [9uy]: What's the status?<br>
     [4wg]: Im aproching the source.<br>
-    [9uy]: Any signals of someone?<br>
+    [9uy]: Any signals of <i>someone</i>?<br>
     [4wg]: No.<br>
     [4wg]: My geiger counter is starting to increase rapidly.<br>
     [9uy]: What are the readings?<br>
     [4wg]: The readings are [DATA REMOVED].<br>
     [9uy]: You shouldn't get closer.<br>
     [4wg]: Its increasing, do you <b>hear</b> it?<br>
-    ----- Disconnected -----
-    <audio loop id="geiger" src="./geiger.mp3"></audio>
+    ----- Disconnected -----</p>
+    <audio loop id="geiger" src="/media/geiger.mp3"></audio>
     <script>
-      document.getElementById("geiger").play()
+      function p() {
+        try {
+          document.getElementById("geiger").play()
+        } catch (err) {
+          setTimeout(p, 500)
+        }
+      }
+      p()
     </script>
   </body>
 </html>
