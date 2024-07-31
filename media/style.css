@@ -145,8 +145,8 @@ input:not([type=range]), textarea {
   border: 2px var(--text-1) solid;
   background-color: transparent;
 }
-input:not([type]) {
-  padding: 2px 6px 6px 6px;
+input[type=color] {
+  padding: 0;
 }
 input[type=file]::file-selector-button {
   outline: none;
