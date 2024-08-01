@@ -133,7 +133,7 @@ button:hover svg {
   fill: var(--bg-1);
   stroke: var(--bg-1);
 }
-input:not([type=range]), textarea {
+input:not([type=range]), textarea, select {
   font-size: 80%;
   margin: 5px;
   padding: 5px;
@@ -154,17 +154,6 @@ input[type=file]::file-selector-button {
   caret-color: auto;
   color: var(--text-1);
   border-radius: 0.25rem;
-  border: 2px var(--text-1) solid;
-  background-color: transparent;
-}
-select {
-  margin: 5px;
-  padding: 5px;
-  outline: none;
-  font-size: 80%;
-  font-weight: bold;
-  color: var(--text-1);
-  border-radius: 0.7rem;
   border: 2px var(--text-1) solid;
   background-color: transparent;
 }

@@ -3,10 +3,10 @@
   <head>
     <title>Unicode - Fsh</title>
     <!-- Boiler plate------ -->
-    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <link rel="icon" href="/fsh.png" type="image/png">
     <meta name="description" content="View unicode characters.">
     <!-- ------- -->
-    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <link rel="stylesheet" href="/media/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,21 +14,17 @@
     <meta name="theme-color" content="#a89c9b">
     <!-- ------------------ -->
     <style>
-      body {
-        background: #181818;
-        color: #fff;
-      }
-      div {
+      #con {
         display: grid;
         grid-template-columns: repeat(auto-fill, 25px);
         grid-gap: 5px;
       }
       label {
-        background: #303030;
+        background: var(--bg-2);
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px #888 solid;
+        border: 1px var(--bg-3) solid;
         border-radius: 0.25rem;
         aspect-ratio: 1/1;
         height: 24px;
@@ -36,22 +32,24 @@
         transition: 500ms;
       }
       label:hover {
-        background: #282828;
-        border: 1px #444 solid;
+        background: var(--bg-3);
+        border: 1px var(--bg-2) solid;
       }
       button {
         width: fit-content;
       }
-  </style>
+    </style>
   </head>
   <body>
     <div id="con">Loading</div>
-    <button onclick="more()">More</button>
+    <div style="margin:10px;margin-inline:auto;width:fit-content;">
+      <button onclick="more()">More</button>
+    </div>
     <script>
       let d = '';
       let i = 0;
       let j = 1;
-      while (i<500) {
+      while (i<1000) {
         d += '<label>'+String.fromCharCode(i)+'</label>';
         i++
       }
@@ -59,7 +57,7 @@
       function more() {
         j++
         d = '';
-        while (i<j*500) {
+        while (i<j*1000) {
           d += '<label>'+String.fromCharCode(i)+'</label>';
           i++
         }

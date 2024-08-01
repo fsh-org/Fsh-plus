@@ -3,21 +3,34 @@
   <head>
     <title>Images - Fsh</title>
     <!-- Boiler plate------ -->
-    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <link rel="icon" href="/fsh.png" type="image/png">
     <meta name="description" content="Apply filters to images online - Fsh.">
     <!-- ------- -->
-    <link rel="stylesheet" href="https://fsh.plus/NewStyle.css">
+    <link rel="stylesheet" href="/media/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="https://fsh.plus/fsh.png"/>
     <meta name="theme-color" content="#a89c9b">
     <!-- ------------------ -->
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+      img:not([src]) {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <h1>Image editing</h1>
     <input type="file" aria-label="Image file input">
-    <br>
     <select aria-label="Image effect">
       <option>ad</option>
       <option>bi</option>
@@ -37,7 +50,7 @@
     </select>
     <button onclick="send()" accept="image/*">Filter</button>
     <br>
-    <img style="max-width:90vw;max-height:80vh;" alt="Image with applied effect">
+    <img style="max-width:60vw;max-height:60vh;" alt="Image with applied effect">
     <script>
       let URL = 'https://api.fsh.plus/';
 
@@ -52,6 +65,10 @@
       }
 
       async function send() {
+        if (!document.querySelector('input[type="file"]').files[0]) {
+          alert('Include a image')
+          return;
+        }
         fetch(URL+document.querySelector('select').value, {
           method: 'post',
           headers: {
