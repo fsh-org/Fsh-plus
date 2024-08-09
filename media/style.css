@@ -49,6 +49,12 @@ svg {
 details {
   cursor: pointer;
 }
+ul {
+  margin: 0;
+}
+li {
+  margin: 2px;
+}
 @media (prefers-reduced-motion) {
   * {
     transition: none !important;
