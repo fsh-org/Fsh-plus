@@ -15,6 +15,11 @@
     <meta name="theme-color" content="#a89c9b">
     <!-- ------------------ -->
     <style>
+      body {
+        --a: local;
+        --x: left;
+        --y: top;
+      }
       h1, h2, h3 {
         text-align: center;
       }
@@ -46,8 +51,9 @@
         flex-grow: 0;
         flex-shrink: 0;
         position: relative;
-        background: var(--bg-2);
-        background: radial-gradient(circle at top left, var(--bg-3) 0%, var(--bg-2) 80%);
+        background-color: var(--bg-2);
+        background-attachment: var(--a);
+        background-image: radial-gradient(circle at var(--x) var(--y), var(--bg-3) 0%, var(--bg-2) 80%);
       }
       .list div span {
         display: flex;
@@ -99,14 +105,10 @@
       if (!window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) {
         window.addEventListener("load", function() {
           document.body.onmousemove = function(event) {
-            Array.from(document.querySelectorAll('.list div')).forEach(e => {
-              let elem = e.getBoundingClientRect();
-              let x = event.clientX - elem.left;
-              let y = event.clientY - elem.top;
-              let xp = (x / elem.width) * elem.width;
-              let yp = (y / elem.height) * elem.height;
-              e.style.background = 'radial-gradient(circle at '+xp+'px '+yp+'px, var(--bg-3) 0%, var(--bg-2) 80%)';
-            });
+            document.body.style.setProperty('--a', 'fixed');
+            document.body.style.setProperty('--x', event.clientX+'px');
+            document.body.style.setProperty('--y', event.clientY+'px');
+
             let nav = document.querySelector('nav');
             let elem = nav.getBoundingClientRect();
             let x = event.clientX - elem.left;
