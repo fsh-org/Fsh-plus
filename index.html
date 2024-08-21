@@ -27,6 +27,8 @@
         padding: 20px;
         text-align: center;
         background-color: var(--bg-0);
+        background-attachment: var(--a);
+        background-image: radial-gradient(circle at var(--x) var(--y), var(--bg-2) 0%, var(--bg-0) 20%);
       }
 
       img[alt="Github"] {
@@ -53,7 +55,7 @@
         position: relative;
         background-color: var(--bg-2);
         background-attachment: var(--a);
-        background-image: radial-gradient(circle at var(--x) var(--y), var(--bg-3) 0%, var(--bg-2) 80%);
+        background-image: radial-gradient(circle at var(--x) var(--y), var(--bg-3) 0%, var(--bg-2) 20%);
       }
       .list div span {
         display: flex;
@@ -104,18 +106,11 @@
     <script>
       if (!window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) {
         window.addEventListener("load", function() {
-          document.body.onmousemove = function(event) {
-            document.body.style.setProperty('--a', 'fixed');
-            document.body.style.setProperty('--x', event.clientX+'px');
-            document.body.style.setProperty('--y', event.clientY+'px');
-
-            let nav = document.querySelector('nav');
-            let elem = nav.getBoundingClientRect();
-            let x = event.clientX - elem.left;
-            let y = event.clientY - elem.top;
-            let xp = (x / elem.width) * elem.width;
-            let yp = (y / elem.height) * elem.height;
-            nav.style.background = 'radial-gradient(circle at '+xp+'px '+yp+'px, var(--bg-3) 0%, var(--bg-0) 12%)';
+          let body = document.body;
+          body.style.setProperty('--a', 'fixed');
+          body.onpointermove = function(event) {
+            body.style.setProperty('--x', event.clientX+'px');
+            body.style.setProperty('--y', event.clientY+'px');
           }
         })
       }
