@@ -46,11 +46,12 @@ svg {
   stroke: var(--text-1);
   transition: 500ms;
 }
-details {
+summary {
   cursor: pointer;
 }
-ul {
-  margin: 0;
+ul, ol {
+  margin: 0px;
+  padding-left: 25px;
 }
 li {
   margin: 2px;
