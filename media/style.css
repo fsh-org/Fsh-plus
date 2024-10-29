@@ -13,23 +13,29 @@
   --text-2: #bbbbbb;
   --text-3: #888888;
 
+  --black-1: #666;
+  --black-2: #222;
+
+  --white-1: #ddd;
+  --white-2: #bbb;
+
   --red-1: #d66;
-  --red-1: #b22;
+  --red-2: #b22;
 
   --yellow-1: #dd6;
-  --yellow-1: #bb2;
+  --yellow-2: #bb2;
 
   --green-1: #6d6;
-  --green-1: #2b2;
+  --green-2: #2b2;
 
   --aqua-1: #6dd;
   --aqua-2: #4bb;
 
   --blue-1: #66d;
-  --blue-1: #22b;
+  --blue-2: #22b;
 
   --purple-1: #d6d;
-  --purple-1: #b2b;
+  --purple-2: #b2b;
 
   /* Not for use */
   --accent-1: #38bdf8; /*Tailwind: sky 400*/
