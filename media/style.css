@@ -6,12 +6,32 @@
   --bg-1: #181818;
   --bg-2: #252525;
   --bg-3: #333333;
+  --bg-4: #595959;
 
   --text-0: #ffffff;
   --text-1: #dddddd;
   --text-2: #bbbbbb;
   --text-3: #888888;
 
+  --red-1: #d66;
+  --red-1: #b22;
+
+  --yellow-1: #dd6;
+  --yellow-1: #bb2;
+
+  --green-1: #6d6;
+  --green-1: #2b2;
+
+  --aqua-1: #6dd;
+  --aqua-2: #4bb;
+
+  --blue-1: #66d;
+  --blue-1: #22b;
+
+  --purple-1: #d6d;
+  --purple-1: #b2b;
+
+  /* Not for use */
   --accent-1: #38bdf8; /*Tailwind: sky 400*/
   --accent-2: #0ea5e9; /*Tailwind: sky 500*/
 }
@@ -123,11 +143,11 @@ a:has(.title) {
 /* -- Links -- */
 a {
   cursor: pointer;
-  color: var(--accent-1);
+  color: var(--aqua-1);
   transition: color 250ms ease;
 }
 a:hover {
-  color: var(--accent-2);
+  color: var(--aqua-2);
 }
 
 /* -- Inputs -- */
