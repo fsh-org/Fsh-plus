@@ -30,7 +30,7 @@
   </head>
   <body>
     <h1>Image editing</h1>
-    <input type="file" aria-label="Image file input">
+    <input type="file" aria-label="Image file input" accept="image/*">
     <select aria-label="Image effect">
       <option>ad</option>
       <option>ascii</option>
@@ -49,7 +49,7 @@
       <option>uncover</option>
       <option>wanted</option>
     </select>
-    <button onclick="send()" accept="image/*">Filter</button>
+    <button onclick="send()">Filter</button>
     <br>
     <img style="max-width:60vw;max-height:60vh;" alt="Image with applied effect">
     <a id="dl" download style="display:none">Download</a>
