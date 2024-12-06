@@ -130,9 +130,7 @@ dialog {
 /* -- Fsh ownership title -- */
 .title {
   font-size: 250%;
-  margin-top: -15px;
   color: var(--text-0);
-  text-decoration: hidden;
 }
 a:has(.title) {
   text-decoration: none;
