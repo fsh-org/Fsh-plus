@@ -237,10 +237,14 @@
       </div>
     </div>
     <script>
+      // Time machine
       let clo = 0;
       function clock() {
         clo += 1;
-        if (clo > 5) {
+        if (clo === 5) {
+          document.querySelector('link[rel="stylesheet"]').href = '/NewStyle.css';
+        }
+        if (clo === 10) {
           document.querySelector('link[rel="stylesheet"]').href = '/style.css';
         }
       }
@@ -374,9 +378,6 @@
       <a href="/pp"><button>Privacy Policy</button></a>
       <p>Contact</p>
       <p>help@fsh.plus</p>
-    </div>
-    <div style="height: 50px">
-      <a style="text-decoration:none;float:right;margin-right:5px;" href="/geiger">.</a>
     </div>
     <p id="copy" style="text-align:center">Fsh ©2023-2024</p>
     <script>
