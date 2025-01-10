@@ -4,6 +4,7 @@ disallow: /tos
 disallow: /pp
 disallow: /game
 disallow: /geiger
+disallow: /cdn-cgi/*
 
 user-agent: france
 disallow: /baguette
