@@ -45,6 +45,7 @@
       <option>gun</option>
       <option>invert</option>
       <option>jail</option>
+      <option value="image-mean">mean</option>
       <option>pixelate</option>
       <option>uncover</option>
       <option>wanted</option>
@@ -54,48 +55,40 @@
     <img style="max-width:60vw;max-height:60vh;" alt="Image with applied effect">
     <a id="dl" download style="display:none">Download</a>
     <script>
-      let URL = 'https://api.fsh.plus/';
-
-      function _arrayBufferToBase64( buffer ) {
-        var binary = '';
-        var bytes = new Uint8Array( buffer );
-        var len = bytes.byteLength;
-        for (var i = 0; i < len; i++) {
-          binary += String.fromCharCode( bytes[ i ] );
-        }
-        return window.btoa( binary );
-      }
+      const URL = 'https://api.fsh.plus/';
 
       async function send() {
         if (!document.querySelector('input[type="file"]').files[0]) {
-          alert('Include a image')
+          alert('Include a image');
           return;
         }
+        let file = document.querySelector('input[type="file"]').files[0];
         fetch(URL+document.querySelector('select').value, {
           method: 'post',
           headers: {
-            'Content-Type': 'application/octet-stream'
+            'Content-Type': file.type ?? 'application/octet-stream'
           },
-          body: await document.querySelector('input[type="file"]').files[0].arrayBuffer()
-        }).then(async tt => {
-          if (tt.status.toString().startsWith('4')) {
-            alert('An error occured');
-            return;
-          }
-          tt = await tt.text();
-          try {
-            tt = JSON.parse(tt)
-          } catch (err) {
+          body: await file.arrayBuffer()
+        })
+          .then(async res => {
+            if (res.status.toString().startsWith('4')) {
+              alert('An error occured');
+              return;
+            }
+            res = await res.text();
+            try {
+              res = JSON.parse(res)
+            } catch (err) {
+              alert('An error occurred');
+              return;
+            }
+            document.querySelector('img').src = res.image;
+            document.getElementById('dl').href = res.image;
+            document.getElementById('dl').style.display = '';
+          })
+          .catch(err => {
             alert('An error occurred');
-            return;
-          }
-          document.querySelector('img').src = tt.image;
-          document.getElementById('dl').href = tt.image;
-          document.getElementById('dl').style.display = '';
-        })
-        .catch(err => {
-          alert('An error occurred');
-        })
+          })
       }
     </script>
   </body>
