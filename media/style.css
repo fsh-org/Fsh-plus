@@ -169,8 +169,8 @@ button {
 }
 button[disabled] {
   cursor: not-allowed;
-  color: var(--text-2);
-  border: 2px var(--text-2) solid;
+  color: var(--text-3);
+  border: 2px var(--text-3) solid;
 }
 button:not([disabled]):hover {
   color: var(--bg-1);
