@@ -1,9 +1,14 @@
 user-agent: *
 allow: /
-disallow: /tos
-disallow: /pp
+allow: /tos
+allow: /pp
+allow: /branding
+allow: /tool/*
+disallow: /old
+disallow: /old/*
 disallow: /game
 disallow: /geiger
+disallow: /history
 disallow: /cdn-cgi/*
 
 user-agent: france
