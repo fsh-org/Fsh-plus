@@ -36,10 +36,6 @@
 
   --purple-1: #d6d;
   --purple-2: #b2b;
-
-  /* Not for use */
-  --accent-1: #38bdf8; /*Tailwind: sky 400*/
-  --accent-2: #0ea5e9; /*Tailwind: sky 500*/
 }
 
 /* -- Fonts -- */
@@ -68,7 +64,6 @@ h3, h4, h5, h6 {
   margin-top: 1em;
 }
 img {
-  user-drag: none;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;

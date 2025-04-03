@@ -1,5 +1,11 @@
 /* -- Main styling for fsh pages -- */
-@import url("https://fonts.googleapis.com/css?family=Lexend&display=swap");
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./Lexend.ttf) format('ttf');
+}
 
 /* -- Colors -- */
 :root {
@@ -22,7 +28,6 @@ body {
   font-family: 'Lexend', 'Arial';
 }
 img {
-  user-drag: none;
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
