@@ -109,10 +109,10 @@ dialog {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-1);
+  background: inherit, var(--bg-1);
 }
-::-webkit-scrollbar-corner { 
-  background: var(--bg-1);
+::-webkit-scrollbar-corner {
+  background: inherit, var(--bg-1);
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
