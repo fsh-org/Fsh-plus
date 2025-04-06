@@ -3,23 +3,29 @@
 <html lang="en">
   <head>
     <title>Fsh</title>
-    <!-- Boiler plate------ -->
-    <link rel="icon" href="/fsh.png" type="image/png">
-    <meta name="description" content="Fsh, a collection of tools that are free, secure and high-quality">
+    <meta property="og:title" content="Fsh">
+    <meta name="description" content="Fsh, a collection of tools, websites and packages that are free, secure and high-quality.">
+    <meta property="og:description" content="Fsh, a collection of tools, websites and packages that are free, secure and high-quality.">
+    <link rel="canonical" href="https://fsh.plus">
+    <meta property="og:url" content="https://fsh.plus">
     <!-- ------- -->
-    <link rel="stylesheet" href="/media/style.css">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta property="og:image" content="https://fsh.plus/fsh.png">
+    <meta property="og:image:alt" content="Fsh logo">
     <meta name="theme-color" content="#a89c9b">
-    <!-- ------------------ -->
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/media/style.css">
     <script src="https://account.fsh.plus/script.js"></script>
+    <!-- ------------------ -->
     <style>
       h1, h2, h3 {
         text-align: center;
       }
-      nav {
+      header {
         padding: 20px;
         text-align: center;
         background-color: var(--bg-0);
@@ -119,7 +125,7 @@
     </script>
   </head>
   <body>
-    <nav>
+    <header>
       <a href="#" onclick="location.href = '/game'">
         <table class="title">
           <tr>
@@ -178,210 +184,226 @@
         };
         setInterval(rotateText, 4000);
       </script>
-    </nav>
+    </header>
     <br>
     <br>
-    <h2>Fsh products</h2>
-    <p style="text-align:center">Every wonderful thing we offer</p>
-    <h3>Users</h3>
-    <div class="list">
-      <div>
-        <span>
-          <img alt="Fsh bot logo" src="/fsh.png" onclick="clock()">
-          <p>Fsh Bot</p>
-          <a href="https://github.com/Fsh-org/Fsh-bot"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Discord bot for your users that brings activity.</p>
-        <a href="https://bot.fsh.plus/invite"><button>Invite</button></a>
-        <a href="https://bot.fsh.plus"><button>Website</button></a>
-      </div>
-      <div>
-        <span>
-          <img alt="Fsh chat logo" src="/media/logos/chat.png">
-          <p>Fsh Chat</p>
-          <a href="https://github.com/Fsh-org/Fsh-chat"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Private and feature-full browser chat app.</p>
-        <a href="https://chat.fsh.plus"><button>App</button></a>
-      </div>
-      <div>
-        <span>
-          <p>Fsh Radio</p>
-          <a href="https://github.com/Fsh-org/Fsh-radio"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Listen to songs live with people around the world.</p>
-        <a href="https://radio.fsh.plus"><button>Website</button></a>
-      </div>
-      <div>
-        <span>
-          <p>Fsh Flash</p>
-          <a href="https://github.com/Fsh-org/Fsh-flash"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Online flash emulator.</p>
-        <a href="https://flash.fsh.plus"><button>Website</button></a>
-      </div>
-      <div>
-        <span>
-          <img alt="Fsh storage logo" src="/storage.jpg">
-          <p>Fsh Storage</p>
-          <a href="https://github.com/Fsh-org/Fsh-storage"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Easy online file storage.</p>
-        <a href="https://storage.fsh.plus"><button>Website</button></a>
-      </div>
-      <div>
-        <span>
-          <p>Fsh REM</p>
-          <a href="https://github.com/Fsh-org/Fsh-rem"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>View recent earthquakes around the world.</p>
-        <a href="https://rem.fsh.plus"><button>Website</button></a>
-      </div>
-    </div>
-    <script>
-      // Time machine
-      let clo = 0;
-      function clock() {
-        clo += 1;
-        if (clo === 5) {
-          document.querySelector('link[rel="stylesheet"]').href = '/NewStyle.css';
+    <main>
+      <h2>Fsh products</h2>
+      <p style="text-align:center">Every wonderful thing we offer</p>
+      <section>
+        <h3>Users</h3>
+        <div class="list">
+          <div>
+            <span>
+              <img alt="Fsh bot logo" src="/fsh.png" onclick="clock()">
+              <p>Fsh Bot</p>
+              <a href="https://github.com/Fsh-org/Fsh-bot"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Discord bot for your users that brings activity.</p>
+            <a href="https://bot.fsh.plus/invite"><button>Invite</button></a>
+            <a href="https://bot.fsh.plus"><button>Website</button></a>
+          </div>
+          <div>
+            <span>
+              <img alt="Fsh chat logo" src="/media/logos/chat.png">
+              <p>Fsh Chat</p>
+              <a href="https://github.com/Fsh-org/Fsh-chat"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Private and feature-full browser chat app.</p>
+            <a href="https://chat.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh Radio</p>
+              <a href="https://github.com/Fsh-org/Fsh-radio"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Listen to songs live with people around the world.</p>
+            <a href="https://radio.fsh.plus"><button>Website</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh Flash</p>
+              <a href="https://github.com/Fsh-org/Fsh-flash"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Online flash emulator.</p>
+            <a href="https://flash.fsh.plus"><button>Website</button></a>
+          </div>
+          <div>
+            <span>
+              <img alt="Fsh storage logo" src="/storage.jpg">
+              <p>Fsh Storage</p>
+              <a href="https://github.com/Fsh-org/Fsh-storage"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Easy online file storage.</p>
+            <a href="https://storage.fsh.plus"><button>Website</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh REM</p>
+              <a href="https://github.com/Fsh-org/Fsh-rem"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>View recent earthquakes around the world.</p>
+            <a href="https://rem.fsh.plus"><button>Website</button></a>
+          </div>
+        </div>
+      </section>
+      <script>
+        // Time machine
+        let clo = 0;
+        function clock() {
+          clo += 1;
+          if (clo === 5) {
+            document.querySelector('link[rel="stylesheet"]').href = '/NewStyle.css';
+          }
+          if (clo === 10) {
+            document.querySelector('link[rel="stylesheet"]').href = '/style.css';
+          }
         }
-        if (clo === 10) {
-          document.querySelector('link[rel="stylesheet"]').href = '/style.css';
-        }
-      }
-    </script>
-    <h3>Tools</h3>
-    <div class="list">
-      <div>
-        <span>
-          <p>Fsh ToDo</p>
-          <a href="https://github.com/Fsh-org/Fsh-todo"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>A simple todo web app.</p>
-        <a href="https://todo.fsh.plus"><button>Website</button></a>
-      </div>
-      <div>
-        <span>
-          <img alt="Fsh link logo" src="/media/logos/link.png">
-          <p>Fsh Link</p>
-          <a href="https://github.com/Fsh-org/Fsh-link"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Online link shortener.</p>
-        <a href="https://link.fsh.plus"><button>Website</button></a>
-      </div>
-      <div>
-        <span>
-          <p>Fsh HTML</p>
-          <a href="https://github.com/Fsh-org/Fsh-html"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Live html editor on the browser.</p>
-        <a href="https://html.fsh.plus/"><button>Website</button></a>
-      </div>
-    </div>
-    <h3>Development</h3>
-    <div class="list">
-      <div>
-        <span>
-          <img alt="Fsh api logo" src="/media/logos/api.png">
-          <p>Fsh API</p>
-          <a href="https://github.com/Fsh-org/Fsh-api"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Reliable and fast api with lots of endpoints.</p>
-        <a href="https://api.fsh.plus"><button>Endpoints</button></a>
-      </div>
-      <div>
-        <span>
-          <img alt="htms logo" src="/htms.svg">
-          <p>HTMS</p>
-          <a href="https://github.com/Fsh-org/HTMS"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Divide your HTML in reusable samples.</p>
-        <a href="https://htms.fsh.plus/"><button>Website</button></a>
-        <a href="https://htms-docs.fsh.plus/"><button>Docs</button></a>
-      </div>
-      <div>
-        <span>
-          <p>Fsh PT</p>
-          <a href="https://github.com/Fsh-org/Fsh-pt"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Pterodactyl user and application api web ui.</p>
-        <a href="https://pt.fsh.plus"><button>Website</button></a>
-      </div>
-    </div>
-    <h3>JS Packages</h3>
-    <div class="list">
-      <div>
-        <span>
-          <p>FshDB</p>
-          <img alt="NPM Version" src="https://img.shields.io/npm/v/fshdb">
-          <a href="https://github.com/Fsh-org/FshDB"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>A lightweight & fast json database.</p>
-        <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
-      </div>
-      <div>
-        <span>
-          <p>Server HTMS</p>
-          <img alt="NPM Version" src="https://img.shields.io/npm/v/server-htms">
-          <a href="https://github.com/Fsh-org/Server-HTMS"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>A server version of htms.</p>
-        <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
-      </div>
-      <div>
-        <span>
-          <p>rMQR</p>
-          <img alt="NPM Version" src="https://img.shields.io/npm/v/rmqr">
-          <a href="https://github.com/Fsh-org/rmqr"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
-        </span>
-        <p>Rectangular Micro QR code generator for node.</p>
-        <a href="https://www.npmjs.com/package/rmqr"><button>NPM</button></a>
-      </div>
-    </div>
-    <br>
-    <br>
-    <h3>Tools</h3>
-    <ul style="width:fit-content;text-align:left;margin-inline:auto;">
-      <li><a href="/tool/ai">AI Generation</a></li>
-      <li><a href="/tool/animal">Animal Images</a></li>
-      <li><a href="/tool/cps">CPS Counter</a></li>
-      <li><a href="/tool/time">Current Time</a></li>
-      <li><a href="/tool/image">Image Effects</a></li>
-      <li><a href="/tool/unicode">Unicode List</a></li>
-      <li><a href="/tool/youtube">Youtube Downloader</a></li>
-      <li><a href="/tool/ip">Your IP</a></li>
-    </ul>
-    <br>
-    <br>
-    <h2>Made by</h2>
-    <div class="devs">
-      <a href="https://frost.fsh.plus" target="_blank">
-        <img alt="Frost's profile picture" height="100" src="/media/pfp/frost.webp">
-        <h3>Frostzzone</h3>
-        <p>Backend dev</p>
-      </a>
-      <a href="https://inv.fsh.plus" target="_blank">
-        <img alt="Inv's profile picture" height="100" src="/media/pfp/inv.webp">
-        <h3>Inventionpro</h3>
-        <p>Aro cat dev</p>
-      </a>
-    </div>
-    <br>
-    <br>
-    <h2>Resources</h2>
-    <div style="text-align:center;width:fit-content;margin:0 auto;">
-      <p>General</p>
-      <a href="https://status.fsh.plus"><button>Status</button></a>
-      <a href="https://github.com/fsh-org"><button>Github</button></a>
-      <a href="/branding"><button>Branding</button></a>
-      <p>Legal</p>
-      <a href="/tos"><button>Terms of Service</button></a>
-      <a href="/pp"><button>Privacy Policy</button></a>
-      <p>Contact</p>
-      <p>help@fsh.plus</p>
-    </div>
-    <p id="copy" style="text-align:center">Fsh ©2023-2025</p>
+      </script>
+      <section>
+        <h3>Tools</h3>
+        <div class="list">
+          <div>
+            <span>
+              <p>Fsh ToDo</p>
+              <a href="https://github.com/Fsh-org/Fsh-todo"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>A simple todo web app.</p>
+            <a href="https://todo.fsh.plus"><button>Website</button></a>
+          </div>
+          <div>
+            <span>
+              <img alt="Fsh link logo" src="/media/logos/link.png">
+              <p>Fsh Link</p>
+              <a href="https://github.com/Fsh-org/Fsh-link"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Online link shortener.</p>
+            <a href="https://link.fsh.plus"><button>Website</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh HTML</p>
+              <a href="https://github.com/Fsh-org/Fsh-html"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Live html editor on the browser.</p>
+            <a href="https://html.fsh.plus/"><button>Website</button></a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>Development</h3>
+        <div class="list">
+          <div>
+            <span>
+              <img alt="Fsh api logo" src="/media/logos/api.png">
+              <p>Fsh API</p>
+              <a href="https://github.com/Fsh-org/Fsh-api"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Reliable and fast api with lots of endpoints.</p>
+            <a href="https://api.fsh.plus"><button>Endpoints</button></a>
+          </div>
+          <div>
+            <span>
+              <img alt="htms logo" src="/htms.svg">
+              <p>HTMS</p>
+              <a href="https://github.com/Fsh-org/HTMS"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Divide your HTML in reusable samples.</p>
+            <a href="https://htms.fsh.plus/"><button>Website</button></a>
+            <a href="https://htms-docs.fsh.plus/"><button>Docs</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh PT</p>
+              <a href="https://github.com/Fsh-org/Fsh-pt"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Pterodactyl user and application api web ui.</p>
+            <a href="https://pt.fsh.plus"><button>Website</button></a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h3>JS Packages</h3>
+        <div class="list">
+          <div>
+            <span>
+              <p>FshDB</p>
+              <img alt="NPM Version" src="https://img.shields.io/npm/v/fshdb">
+              <a href="https://github.com/Fsh-org/FshDB"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>A lightweight & fast json database.</p>
+            <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Server HTMS</p>
+              <img alt="NPM Version" src="https://img.shields.io/npm/v/server-htms">
+              <a href="https://github.com/Fsh-org/Server-HTMS"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>A server version of htms.</p>
+            <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
+          </div>
+          <div>
+            <span>
+              <p>rMQR</p>
+              <img alt="NPM Version" src="https://img.shields.io/npm/v/rmqr">
+              <a href="https://github.com/Fsh-org/rmqr"><img src="/media/github.png" target="_blank" alt="Github" height="20"/></a>
+            </span>
+            <p>Rectangular Micro QR code generator for node.</p>
+            <a href="https://www.npmjs.com/package/rmqr"><button>NPM</button></a>
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+      <section>
+        <h3>Tools</h3>
+        <ul style="width:fit-content;text-align:left;margin-inline:auto;">
+          <li><a href="/tool/ai">AI Generation</a></li>
+          <li><a href="/tool/animal">Animal Images</a></li>
+          <li><a href="/tool/cps">CPS Counter</a></li>
+          <li><a href="/tool/time">Current Time</a></li>
+          <li><a href="/tool/image">Image Effects</a></li>
+          <li><a href="/tool/unicode">Unicode List</a></li>
+          <li><a href="/tool/youtube">Youtube Downloader</a></li>
+          <li><a href="/tool/ip">Your IP</a></li>
+        </ul>
+      </section>
+      <br>
+      <br>
+      <section>
+        <h2>Made by</h2>
+        <div class="devs">
+          <a href="https://frost.fsh.plus" target="_blank">
+            <img alt="Frost's profile picture" height="100" src="/media/pfp/frost.webp">
+            <h3>Frostzzone</h3>
+            <p>Backend dev</p>
+          </a>
+          <a href="https://inv.fsh.plus" target="_blank">
+            <img alt="Inv's profile picture" height="100" src="/media/pfp/inv.webp">
+            <h3>Inventionpro</h3>
+            <p>Aro cat dev</p>
+          </a>
+        </div>
+      </section>
+      <br>
+      <br>
+      <section>
+        <h2>Resources</h2>
+        <div style="text-align:center;width:fit-content;margin:0 auto;">
+          <p>General</p>
+          <a href="https://status.fsh.plus"><button>Status</button></a>
+          <a href="https://github.com/fsh-org"><button>Github</button></a>
+          <a href="/branding"><button>Branding</button></a>
+          <p>Legal</p>
+          <a href="/tos"><button>Terms of Service</button></a>
+          <a href="/pp"><button>Privacy Policy</button></a>
+          <p>Contact</p>
+          <p>help@fsh.plus</p>
+        </div>
+      </section>
+    </main>
+    <footer id="copy" style="text-align:center">Fsh ©2023-2025</footer>
     <script>
       // Auto adjust copyright (so different timezones see update as new year happens)
       if (new Date().getFullYear() != 2025) {
