@@ -189,7 +189,7 @@ input:not([type=range]), textarea, select {
   background-color: transparent;
 }
 input[type=color] {
-  padding: 0;
+  padding: 0px;
 }
 input[type=file]::file-selector-button {
   outline: none;
@@ -199,6 +199,9 @@ input[type=file]::file-selector-button {
   border-radius: 0.25rem;
   border: 2px var(--text-1) solid;
   background-color: transparent;
+}
+input::placeholder, textarea::placeholder {
+  color: var(--text-3);
 }
 select {
   cursor: pointer;
