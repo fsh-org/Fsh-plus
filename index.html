@@ -159,22 +159,29 @@
       </div>
       <script>
         let wordings = ['Free','Secure','High-Quality','Fun','Simple','Helpful'];
+        let colors = ['','','','','','']
         // Events
         if (new Date().getMonth()===5) {
           document.querySelector('.rotating-text .out').innerText = 'Rights for the';
           wordings = ['Gay','Trans','AroAce','Non-Binary','Queer','Everyone'];
+          colors = ['#078d70,#98e8c1,#ffffff,#7bade2,#3d1a78', '#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa', '#e28c00,#eccd00,#ffffff,#62aedc,#203856','#fff433,#ffffff,#9b59d0,#2d2d2d','#000000,#99d9ea,#00a2e8,#b5e61d,#ffffff,#ffc90e,#fd6666,#ffaec9,#000000',''];
         }
         // Set words
         document.querySelector('.rotating-text .in').innerHTML = wordings.map(t=>`<span class="word">${t}</span>`).join('');
         // Rotating text by alphardex
         let words = document.querySelectorAll(".word");
-        words.forEach(word => {
+        words.forEach((word,i) => {
           let letters = word.textContent.split("");
           word.textContent = "";
           letters.forEach(letter => {
             let span = document.createElement("span");
             span.textContent = letter;
             span.className = "letter";
+            if (colors[i]) {
+              span.style.color = 'transparent';
+              span.style.background = 'linear-gradient('+colors[i]+')';
+              span.style.backgroundClip = 'text';
+            }
             word.append(span);
           });
         });
