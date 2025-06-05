@@ -40,7 +40,14 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./Lexend.ttf) format('ttf');
+  src: url(./fonts/Lexend.ttf) format('ttf');
+}
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/OpenDyslexic.woff2) format('woff2');
 }
 
 /* -- General styling -- */
