@@ -116,6 +116,7 @@
       }
       .rotating-text h2 .word .letter {
         transform-origin: center center 25px;
+        white-space: break-spaces;
       }
       .rotating-text h2 .word .letter.out {
         transform: rotateX(90deg);
@@ -160,6 +161,7 @@
       <script>
         let wordings = ['Free','Secure','High-Quality','Fun','Simple','Helpful'];
         let colors = ['','','','','',''];
+        let timming = 4000;
         // Events
         let today = new Date();
         if (today.getMonth()===5) {
@@ -171,6 +173,7 @@
           document.querySelector('.rotating-text .out').innerText = '';
           wordings = ['No matter how ridiculous the odds may seem,','within us resides the power to overcome these challenges','and achive something beutiful,',"that one day we'll look back at where we started","and be amazed by how far we've come.",'Technoblade Never Dies'];
           colors = ['','','','','','var(--red-1)'];
+          timming = 8000;
         }
         // Set words
         document.querySelector('.rotating-text .in').innerHTML = wordings.map(t=>`<span class="word">${t}</span>`).join('');
@@ -214,7 +217,7 @@
           });
           currentWordIndex = (currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1);
         };
-        setInterval(rotateText, 4000);
+        setInterval(rotateText, timming);
       </script>
     </header>
     <br>
