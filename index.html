@@ -159,12 +159,18 @@
       </div>
       <script>
         let wordings = ['Free','Secure','High-Quality','Fun','Simple','Helpful'];
-        let colors = ['','','','','','']
+        let colors = ['','','','','',''];
         // Events
-        if (new Date().getMonth()===5) {
+        let today = new Date();
+        if (today.getMonth()===5) {
           document.querySelector('.rotating-text .out').innerText = 'Rights for the';
           wordings = ['Gay','Trans','AroAce','Non-Binary','Queer','People'];
           colors = ['#078d70,#98e8c1,#ffffff,#7bade2,#3d1a78', '#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa', '#e28c00,#eccd00,#ffffff,#62aedc,#203856','#fff433,#ffffff,#9b59d0,#2d2d2d','#000000,#99d9ea,#00a2e8,#b5e61d,#ffffff,#ffc90e,#fd6666,#ffaec9,#000000',''];
+        }
+        if (today.getDate()===1&&today.getMonth()===6) {
+          document.querySelector('.rotating-text .out').innerText = '';
+          wordings = ['No matter how ridiculous the odds may seem,','within us resides the power to overcome these challenges','and achive something beutiful,',"that one day we'll look back at where we started","and be amazed by how far we've come.",'Technoblade Never Dies'];
+          colors = ['','','','','','var(--red-1)'];
         }
         // Set words
         document.querySelector('.rotating-text .in').innerHTML = wordings.map(t=>`<span class="word">${t}</span>`).join('');
