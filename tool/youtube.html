@@ -33,6 +33,18 @@
     </style>
   </head>
   <body>
+    <h1>Youtube</h1>
+    <div>
+      <label for="id">Id:</label>
+      <input id="id" placeholder="Youtube id/url here">
+    </div>
+    <div>
+      <button onclick="dow('video')">Video (Mp4)</button>
+      <button onclick="dow('audio')">Audio (Mp3)</button>
+    </div>
+    <p style="display:none">Loading...</p>
+    <video src="" controls style="display:none"></video>
+    <audio src="" controls style="display:none"></audio>
     <script>
       const video = document.querySelector('video');
       const audio = document.querySelector('audio');
@@ -66,17 +78,5 @@
         })
       }
     </script>
-    <h1>Youtube</h1>
-    <div>
-      <label for="id">Id:</label>
-      <input id="id" placeholder="Youtube id/url here">
-    </div>
-    <div>
-      <button onclick="dow('video')">Video (Mp4)</button>
-      <button onclick="dow('audio')">Audio (Mp3)</button>
-    </div>
-    <p style="display:none">Loading...</p>
-    <video src="" controls style="display:none"></video>
-    <audio src="" controls style="display:none"></audio>
   </body>
 </html>
