@@ -4,7 +4,7 @@
     <title>Youtube - Fsh</title>
     <!-- Boiler plate------ -->
     <link rel="icon" href="/fsh.png" type="image/png">
-    <meta name="description" content="Fsh youtube downloader">
+    <meta name="description" content="Fsh youtube video and audio downloader and ad free viewer">
     <!-- ------- -->
     <link rel="stylesheet" href="/media/style.css">
     <meta charset="UTF-8">
@@ -24,31 +24,43 @@
         width: 100vw;
         overflow: hidden;
       }
+      video, audio {
+        max-width: 50vw;
+      }
+      p {
+        width: fit-content;
+      }
     </style>
   </head>
   <body>
     <script>
+      const video = document.querySelector('video');
+      const audio = document.querySelector('audio');
+      const p = document.querySelector('p');
       async function dow(type) {
-        document.getElementsByTagName('video')[0].style.display = 'none'
-        document.getElementsByTagName('audio')[0].style.display = 'none'
-        document.getElementsByTagName('video')[0].pause()
-        document.getElementsByTagName('audio')[0].pause()
+        video.style.display = 'none'
+        audio.style.display = 'none'
+        p.style.display = ''
+        video.pause()
+        audio.pause()
 
-        let iid = document.getElementById('id').value;
-        iid = iid.split('v=').slice(-1)[0];
-        iid = iid.split('&')[0];
-        iid = iid.split('/').slice(-1)[0];
+        let id = document.getElementById('id').value;
+        id = id.split('v=').slice(-1)[0];
+        id = id.split('&')[0];
+        id = id.split('/').slice(-1)[0];
+        id = id.split('?')[0];
 
-        fetch('https://api.fsh.plus/'+type+'?id='+iid).then(async p => {
-          p = await p.json();
+        fetch('https://api.fsh.plus/'+type+'?id='+id).then(async res => {
+          res = await res.json();
+          p.style.display = 'none';
           switch(type) {
             case 'video':
-              document.getElementsByTagName('video')[0].src = p.video
-              document.getElementsByTagName('video')[0].style.display = '';
+              video.src = p.video
+              video.style.display = '';
               break;
             case 'audio':
-              document.getElementsByTagName('audio')[0].src = p.audio
-              document.getElementsByTagName('audio')[0].style.display = '';
+              audio.src = p.audio
+              audio.style.display = '';
               break;
           }
         })
@@ -60,10 +72,11 @@
       <input id="id" placeholder="Youtube id/url here">
     </div>
     <div>
-      <button onclick="dow('video')">Video/Mp4</button>
-      <button onclick="dow('audio')">Audio/Mp3</button>
+      <button onclick="dow('video')">Video (Mp4)</button>
+      <button onclick="dow('audio')">Audio (Mp3)</button>
     </div>
-    <video src="" controls style="display:none;max-width:25vw;"></video>
-    <audio src="" controls style="display:none;max-width:25vw;"></audio>
+    <p style="display:none">Loading...</p>
+    <video src="" controls style="display:none"></video>
+    <audio src="" controls style="display:none"></audio>
   </body>
 </html>
