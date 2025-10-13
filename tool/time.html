@@ -37,19 +37,19 @@
   <body>
     <h1>00:00:00</h1>
     <p>01/01/1970</p>
-    <label>monday, 1 of january of 1970</label>
+    <span>monday, 1 of january of 1970</span>
     <br>
-    <label>0</label>
+    <span style="font-family:ui-monospace,monospace">Unix: 0</span>
     <br>
-    <label>Offset: 0</label>
+    <span>Offset: 0</span>
     <script>
       window.setInterval(function(){
         let dat = new Date();
         document.getElementsByTagName('h1')[0].innerHTML = `${String(dat.getHours()).padStart(2, '0')}:${String(dat.getMinutes()).padStart(2, '0')}:${String(dat.getSeconds()).padStart(2, '0')}`;
         document.getElementsByTagName('p')[0].innerHTML = dat.toLocaleDateString(navigator.language);
-        document.getElementsByTagName('label')[0].innerHTML = dat.toLocaleDateString(navigator.language, {weekday: 'long',year: 'numeric',month: 'long',day: 'numeric'});
-        document.getElementsByTagName('label')[1].innerHTML = dat.getTime()/1000;
-        document.getElementsByTagName('label')[2].innerHTML = 'Offset: '+dat.getTimezoneOffset()/60;
+        document.getElementsByTagName('span')[0].innerHTML = dat.toLocaleDateString(navigator.language, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        document.getElementsByTagName('span')[1].innerHTML = 'Unix: '+(dat.getTime()/1000).toFixed(3);
+        document.getElementsByTagName('span')[2].innerHTML = 'Offset: '+dat.getTimezoneOffset()/60+'h';
       }, 1);
     </script>
   </body>
