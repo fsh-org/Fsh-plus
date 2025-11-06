@@ -450,11 +450,11 @@
         </div>
       </section>
     </main>
-    <footer id="copy" style="text-align:center">Fsh ©2023-2025</footer>
+    <footer id="copy" style="text-align:center">© 2023-2025 Fsh</footer>
     <script>
       // Auto adjust copyright (so different timezones see update as new year happens)
-      if (new Date().getFullYear() != 2025) {
-        document.getElementById("copy").innerHTML = `Fsh ©2023-${new Date().getFullYear()}`;
+      if (new Date().getFullYear() > 2025) {
+        document.getElementById('copy').innerHTML = `© 2023-${new Date().getFullYear()} Fsh`;
       }
     </script>
   </body>
