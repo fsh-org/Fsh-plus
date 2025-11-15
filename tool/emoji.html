@@ -85,16 +85,16 @@
         mouth: 0
       };
       const options = {
-        head: ' > < 0 \', } 3'.split(' '),
-        eyes: ': ; = 8 B X #'.split(' '),
-        nose: ' \' " - ^ //'.split(' '),
-        mouth:') D ] } > 3 O P b | / \\ ( [ { < c L S E * X #'.split(' ')
+        head: ['','>','<','0',"',",'}','3'],
+        eyes: [':',';','=','8','B','X','#'],
+        nose: ['',"'",'"','-','^','//'],
+        mouth:[')','D',']','}','>','3','O','P','b','|','/','\\','(','[','{','<','c','L','S','E','*','X','#']
       };
       const names = {
-        head: ' Angry Dunce Angel Skeptical Evil Evil'.split(' '),
-        eyes: ' Winking   Cool Cool Dizzy'.split(' '),
-        nose: ' Teared Teared  Blushing'.split(' '),
-        mouth:'Happy Very-Happy Happy Happy Silly-Happy Cat Surprised Tongue Tongue Neutral Bothered Bothered Sad Sad Sad Sad Small-Sad Neutral Dizzy Nervous Kissing Kissing Zipped'.split(' ')
+        head: ['','Angry','Dunce','Angel','Skeptical','Evil','Evil'],
+        eyes: ['','Winking','','','Cool','Cool','Dizzy'],
+        nose: ['','Teared','Teared','','','Blushing'],
+        mouth:['Happy','Very Happy','Happy','Happy','Silly Happy','Cat','Surprised','Tongue','Tongue','Neutral','Bothered','Bothered','Sad','Sad','Sad','Silly Sad','Small Sad','Neutral','Dizzy','Nervous','Kissing','Kissing','Zipped']
       };
       function preview() {
         pre.innerText = options.head[selected.head]+options.eyes[selected.eyes]+options.nose[selected.nose]+options.mouth[selected.mouth];
