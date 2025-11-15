@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Text Emoji - Fsh</title>
+    <!-- Boiler plate------ -->
+    <link rel="icon" href="/fsh.png" type="image/png">
+    <meta name="description" content="Create text emojis">
+    <!-- ------- -->
+    <link rel="stylesheet" href="/media/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://fsh.plus/fsh.png"/>
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------------------ -->
+    <script src="https://account.fsh.plus/script.js"></script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100dvw;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      main {
+        display: flex;
+        gap: 5px;
+        width: 50dvw;
+      }
+      main > div {
+        flex: 1;
+        padding: 20px;
+        border-radius: 1rem;
+        background-color: var(--bg-2);
+        box-sizing: border-box;
+      }
+      .preview {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .preview span {
+        cursor: pointer;
+        display: block;
+        font-size: 250%;
+        font-family: ui-monospace, monospace, Lexend, Arial, sans-serif;
+        width: fit-content;
+        height: fit-content;
+        transform: rotateZ(90deg);
+      }
+      .preview div {
+        position: absolute;
+        bottom: 5px;
+      }
+      @media (max-width: 700px) {
+        main {
+          width: 90dvw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Text Emoji</h1>
+    <main>
+      <div class="options">
+        <b style="font-size:150%">Options:</b>
+      </div>
+      <div class="preview">
+        <span></span>
+        <div></div>
+      </div>
+    </main>
+    <script>
+      let pre = document.querySelector('.preview span');
+      let nam = document.querySelector('.preview div');
+      let opts = document.querySelector('.options');
+      let selected = {
+        head: 0,
+        eyes: 0,
+        nose: 0,
+        mouth: 0
+      };
+      const options = {
+        head: ' > < 0 \', } 3'.split(' '),
+        eyes: ': ; = 8 B X #'.split(' '),
+        nose: ' \' " - ^ //'.split(' '),
+        mouth:') D ] } > 3 O P b | / \\ ( [ { < c L S E * X #'.split(' ')
+      };
+      const names = {
+        head: ' Angry Dunce Angel Skeptical Evil Evil'.split(' '),
+        eyes: ' Winking   Cool Cool Dizzy'.split(' '),
+        nose: ' Teared Teared  Blushing'.split(' '),
+        mouth:'Happy Very-Happy Happy Happy Silly-Happy Cat Surprised Tongue Tongue Neutral Bothered Bothered Sad Sad Sad Sad Small-Sad Neutral Dizzy Nervous Kissing Kissing Zipped'.split(' ')
+      };
+      function preview() {
+        pre.innerText = options.head[selected.head]+options.eyes[selected.eyes]+options.nose[selected.nose]+options.mouth[selected.mouth];
+        nam.innerText = names.head[selected.head]+' '+names.eyes[selected.eyes]+' '+names.nose[selected.nose]+' '+names.mouth[selected.mouth]+' Face';
+      }
+      opts.innerHTML += Object.keys(selected)
+        .map(s=>`<div>${s}: <button onclick="b('${s}',this)">&lt;</button><span class="c">1</span><button onclick="f('${s}',this)">&gt;</button></div>`)
+        .join('');
+      preview();
+      window.b = (s,t)=>{
+        selected[s] -= 1;
+        if (selected[s]<0) selected[s] = options[s].length-1;
+        t.parentElement.querySelector('span.c').innerText = selected[s]+1;
+        preview();
+      };
+      window.f = (s,t)=>{
+        selected[s] = (selected[s]+1)%options[s].length;
+        t.parentElement.querySelector('span.c').innerText = selected[s]+1;
+        preview();
+      };
+      pre.onclick = ()=>{
+        navigator.clipboard.writeText(pre.innerText);
+      }
+    </script>
+  </body>
+</html>
