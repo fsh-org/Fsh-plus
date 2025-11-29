@@ -28,14 +28,11 @@
   </head>
   <body>
     <script>
-      fetch('https://api.fsh.plus/ip').then(async(res) => {
-        res = await res.json();
-        document.getElementById('public').innerHTML = res.public;
-        document.getElementById('local').innerHTML = res.ip;
-      })
+      fetch('https://api.fsh.plus/ip')
+        .then(res=>res.json())
+        .then(res=>{document.getElementById('ip').innerHTML=res.ip});
     </script>
     <h1>IP</h1>
-    <p>Public: <label id="public">127.0.0.0</label></p>
-    <p>Local: <label id="local">127.0.0.0</label></p>
+    <p id="ip">127.0.0.0</p>
   </body>
 </html>
