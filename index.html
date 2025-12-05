@@ -159,7 +159,7 @@
       </a>
       <br>
       <div class="rotating-text" style="transition:translate 500ms ease-in-out 0s">
-        <h2 class="out">Fsh is</h2>
+        <h2 class="out"></h2>
         <h2 class="in"></h2>
       </div>
       <script>
@@ -168,16 +168,61 @@
         let timming = 4000;
         // Events
         let today = new Date();
-        if (today.getMonth()===5) {
+        if (today.getDate()===1&&today.getMonth()===0) {
+          wordings = ['Happy new year!','Let it be a great year,','full of hope','and love'];
+          colors = ['','','#e3c712','#e32012'];
+        } else if (today.getDate()===22&&today.getMonth()===0) {
+          wordings = ['Happy lunar new year!','Let it be great'];
+          colors = ['',''];
+        } else if (today.getDate()===27&&today.getMonth()===0) {
+          wordings = ["It's fsh birthday",'Happy fsh day','much fsh today','/history'];
+          colors = ['','','',''];
+        } else if (today.getDate()===14&&today.getMonth()===1) {
+          wordings = ['Happy valentines','Find that person','that makes you whole'];
+          colors = ['#e32012','#e32012','#e32012'];
+        } else if (today.getDate()===8&&today.getMonth()===2) {
+          wordings = ['Womens day','Woman or Man','They are the same'];
+          colors = ['','',''];
+        } else if (today.getDate()===14&&today.getMonth()===2) {
+          wordings = ['PI day','PIE day','π day','τ/2 day'];
+          colors = ['#3243f6','#3243f6','#3243f6','#3243f6'];
+        } else if (today.getDate()===6&&today.getMonth()===3) {
+          wordings = ['Ace day','Asexuality day','Ace in the hole'];
+          colors = ['#000000,#a3a3a3,#ffffff,#8d0085','#000000,#a3a3a3,#ffffff,#8d0085'];
+        } else if (today.getDate()===22&&today.getMonth()===3) {
+          wordings = ['Earth day','Treat it well','cause soon...','you wont be here to see it'];
+          colors = ['','','',''];
+        } else if (today.getMonth()===5) {
           document.querySelector('.rotating-text .out').innerText = 'Rights for the';
           wordings = ['Gay','Trans','AroAce','Non-Binary','Queer','People'];
-          colors = ['#078d70,#98e8c1,#ffffff,#7bade2,#3d1a78', '#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa', '#e28c00,#eccd00,#ffffff,#62aedc,#203856','#fff433,#ffffff,#9b59d0,#2d2d2d','#000000,#99d9ea,#00a2e8,#b5e61d,#ffffff,#ffc90e,#fd6666,#ffaec9,#000000',''];
-        }
-        if (today.getDate()===1&&today.getMonth()===6) {
-          document.querySelector('.rotating-text .out').innerText = '';
+          colors = ['#078d70,#98e8c1,#ffffff,#7bade2,#3d1a78','#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa','#e28c00,#eccd00,#ffffff,#62aedc,#203856','#fff433,#ffffff,#9b59d0,#2d2d2d','#000000,#99d9ea,#00a2e8,#b5e61d,#ffffff,#ffc90e,#fd6666,#ffaec9,#000000',''];
+        } else if (today.getDate()===1&&today.getMonth()===6) {
           wordings = ['No matter how ridiculous the odds may seem,','within us resides the power to overcome these challenges','and achive something beutiful,',"that one day we'll look back at where we started","and be amazed by how far we've come.",'Technoblade Never Dies'];
           colors = ['','','','','','var(--red-1)'];
           timming = 8000;
+        } else if (today.getDate()===14&&today.getMonth()===6) {
+          wordings = ['Non-binary day','2','none of the above'];
+          colors = ['#fff433,#ffffff,#9b59d0,#2d2d2d','#fff433,#ffffff,#9b59d0,#2d2d2d','#fff433,#ffffff,#9b59d0,#2d2d2d'];
+        } else if (today.getDate()===8&&today.getMonth()===7) {
+          wordings = ['Cat day','Meow','Miau','Nyaa','Niau','Meo meo'];
+          colors = ['','','','','',''];
+        } else if (today.getDate()===23&&today.getMonth()===8) {
+          wordings = ['BI day','bi DAY','BI DAY!','bi day...','BI','day'];
+          colors = ['#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8'];
+        } else if (today.getDate()===16&&today.getMonth()===9) {
+          wordings = ['Bread day','yes, bread day','we love bread day','best day'];
+          colors = ['','','',''];
+        } else if (today.getDate()===31&&today.getMonth()===9) {
+          wordings = ['Boo','did I scare ya?'];
+          colors = ['',''];
+        } else if (today.getDate()===20&&today.getMonth()===10) {
+          wordings = ['Trans Day of Remembrance','For those who died','in search of themselves'];
+          colors = ['#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa','#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa','#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa'];
+        } else if (today.getDate()===10&&today.getMonth()===11) {
+          wordings = ['Human rights day','cause people',"don't belive",'in them'];
+          colors = ['','','',''];
+        } else {
+          document.querySelector('.rotating-text .out').innerText = 'Fsh is';
         }
         // Set words
         document.querySelector('.rotating-text .in').innerHTML = wordings.map(t=>`<span class="word">${t}</span>`).join('');
