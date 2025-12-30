@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Oscilloscope Music Viewer - Fsh</title>
+    <meta property="og:title" content="Oscilloscope Music Viewer - Fsh">
+    <meta name="twitter:title" content="Oscilloscope Music Viewer - Fsh">
+    <meta name="description" content="Oscilloscope Music Viewer, free oscilloscope music / song viewer online.">
+    <meta property="og:description" content="Oscilloscope Music Viewer, free oscilloscope music / song viewer online.">
+    <meta name="twitter:description" content="Oscilloscope Music Viewer, free oscilloscope music / song viewer online.">
+    <!-- ------- -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta property="og:image" content="https://fsh.plus/fsh.png">
+    <meta property="og:image:alt" content="Fsh logo">
+    <meta name="twitter:image" content="https://fsh.plus/fsh.png">
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/media/style.css">
+    <script src="https://account.fsh.plus/script.js"></script>
+    <!-- ------------------ -->
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100dvw;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      canvas {
+        border: 1px var(--text-1) solid;
+        border-radius: 10px;
+      }
+      input[type="range"] {
+        width: 400px;
+      }
+      input[type="number"] {
+        width: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Oscilloscope Music Viewer</h1>
+    <label>Audio: <input id="file" type="file"></label>
+    <div>
+      <button>Stop</button>
+      <label>FPS: <input id="fps" type="number" value="30" min="1"></label>
+      <label>Color: <input id="color" value="#22dd22" type="color"></label>
+      <label>Connected: <input id="con" type="checkbox"></label>
+      <label>Size: <input id="size" type="number" value="3" min="1"></label>
+    </div>
+    <input id="range" type="range" min="0" value="0" readonly>
+    <canvas width="400" height="400">
+    <script>
+      let input = document.getElementById('file');
+      let range = document.getElementById('range');
+      let stopb = document.querySelector('button');
+      let canvas = document.querySelector('canvas');
+
+      let color = document.getElementById('color');
+      let fel = document.getElementById('fps');
+      let con = document.getElementById('con');
+      let siz = document.getElementById('size');
+
+      async function showSpectro() {
+        const audioContext = new AudioContext();
+        let audioBuffer = await audioContext.decodeAudioData(await input.files[0].arrayBuffer());
+        let source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+
+        const leftChannel = audioBuffer.getChannelData(0);
+        const rightChannel = audioBuffer.numberOfChannels>1?audioBuffer.getChannelData(1):leftChannel;
+
+        let samples = leftChannel.length;
+        let sampleRate = audioBuffer.sampleRate;
+        range.max = samples;
+
+        let ctx = canvas.getContext('2d');
+        ctx.lineJoin = 'round';
+        let canvasW = canvas.width/2;
+        let canvasH = canvas.height/2;
+
+        ctx.strokeStyle = color.value;
+        ctx.fillStyle = color.value;
+        color.oninput = ()=>{
+          ctx.strokeStyle = color.value;
+          ctx.fillStyle = color.value;
+        };
+
+        let fps = fel.value;
+        fel.onchange = ()=>{
+          fps = fel.value;
+        };
+
+        let connected = con.checked;
+        con.onchange = ()=>{
+          connected = con.checked;
+        };
+
+        let size = siz.value;
+        ctx.lineWidth = size;
+        siz.oninput = ()=>{
+          size = siz.value;
+          ctx.lineWidth = size;
+        };
+
+        let i = 0;
+        let rate = sampleRate/fps;
+        let start = 0;
+        let stop = false;
+        function showFrame() {
+          if (stop) return;
+          i = (audioContext.currentTime-start)*sampleRate;
+          range.value = i;
+          if ((i+rate)>samples) return;
+          setTimeout(showFrame, 1000/fps);
+          ctx.clearRect(0,0,canvasW*2,canvasH*2);
+          if (connected) {
+            ctx.beginPath();
+            ctx.moveTo(leftChannel[i]*canvasW+canvasW, rightChannel[i]*canvasH+canvasH);
+            i++;
+          }
+          for (let j=0; j<rate; j++) {
+            ctx[connected?'lineTo':'fillRect'](leftChannel[i]*canvasW+canvasW, rightChannel[i]*canvasH+canvasH, size, size);
+            i++;
+          }
+          if (connected) ctx.stroke();
+        }
+        showFrame();
+        source.start();
+        stopb.onclick = ()=>{
+          source.stop();
+          stop = true;
+        };
+      }
+
+      input.onchange = showSpectro;
+    </script>
+  </body>
+</html>
