@@ -37,6 +37,9 @@
         border: 1px var(--text-1) solid;
         border-radius: 10px;
       }
+      input {
+        margin: 3px 0px !important;
+      }
       input[type="range"] {
         width: 400px;
       }
@@ -45,7 +48,7 @@
       }
     </style>
   </head>
-  <body>
+  <body role="main">
     <h1>Oscilloscope Music Viewer</h1>
     <label>Audio: <input id="file" type="file"></label>
     <div>
@@ -55,7 +58,7 @@
       <label>Connected: <input id="con" type="checkbox"></label>
       <label>Size: <input id="size" type="number" value="3" min="1"></label>
     </div>
-    <input id="range" type="range" min="0" value="0" readonly>
+    <label>Time: <input id="range" type="range" min="0" value="0" disabled></label>
     <canvas width="400" height="400">
     <script>
       let input = document.getElementById('file');
