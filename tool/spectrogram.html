@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Spectrogram - Fsh</title>
+    <meta property="og:title" content="Spectrogram - Fsh">
+    <meta name="twitter:title" content="Spectrogram - Fsh">
+    <meta name="description" content="Spectrogram, free online music / song spectrogram viewer with heat / grayscale styles and adjustable fft size.">
+    <meta property="og:description" content="Spectrogram, free online music / song spectrogram viewer with heat / grayscale styles and adjustable fft size.">
+    <meta name="twitter:description" content="Spectrogram, free online music / song spectrogram viewer with heat / grayscale styles and adjustable fft size.">
+    <!-- ------- -->
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://fsh.plus/fsh.png" type="image/png">
+    <meta property="og:image" content="https://fsh.plus/fsh.png">
+    <meta property="og:image:alt" content="Fsh logo">
+    <meta name="twitter:image" content="https://fsh.plus/fsh.png">
+    <meta name="theme-color" content="#a89c9b">
+    <!-- ------- -->
+    <link rel="stylesheet" href="https://fsh.plus/media/style.css">
+    <script src="https://account.fsh.plus/script.js"></script>
+    <!-- ------------------ -->
+    <style>
+      body {
+        text-align: center;
+      }
+      canvas {
+        width: 80dvw;
+        aspect-ratio: 16 / 9;
+        background: var(--bg-0);
+      }
+    </style>
+  </head>
+  <body role="main">
+    <h1>Spectrogram</h1>
+    <label>Audio: <input type="file" id="audioFile" accept="audio/*"></label>
+    <br>
+    <label>FFT Size: <input type="range" id="fftrange" min="5" max="15" value="11"></label>
+    <br>
+    <label>Style: <select id="style">
+      <option value="hue">Hue</option>
+      <option value="kelvin">Kelvin</option>
+      <option value="gray">Greyscale</option>
+    </select></label>
+    <br>
+    <canvas id="spectrogram" width="1000" height="600"></canvas>
+
+    <script>
+      const fileInput = document.getElementById('audioFile');
+      const fftInput = document.getElementById('fftrange');
+      const style = document.getElementById('style');
+      const canvas = document.getElementById('spectrogram');
+      const ctx = canvas.getContext('2d');
+
+      let audioCtx;
+      let analyser;
+      let source;
+      let dataArray;
+      let bufferLength;
+      let animreq;
+
+      fftInput.oninput = ()=>{
+        if (analyser) analyser.fftSize = 2**fftInput.value;
+      };
+
+      fileInput.addEventListener('change', async(e)=>{
+        const file = e.target.files[0];
+        if (!file) return;
+
+        if (audioCtx) audioCtx.close();
+        if (animreq) cancelAnimationFrame(animreq);
+
+        audioCtx = new window.AudioContext();
+        source = audioCtx.createBufferSource();
+        source.buffer = await audioCtx.decodeAudioData(await file.arrayBuffer());
+
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 2**fftInput.value;
+        bufferLength = analyser.frequencyBinCount;
+        dataArray = new Uint8Array(bufferLength);
+
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+
+        source.start();
+        source.onended = ()=>{
+          audioCtx.close();
+          cancelAnimationFrame(animreq);
+        };
+
+        drawSpectrogram();
+      });
+
+      function drawSpectrogram() {
+        animreq = requestAnimationFrame(drawSpectrogram);
+
+        analyser.getByteFrequencyData(dataArray);
+
+        // Shift image
+        const imageData = ctx.getImageData(1, 0, canvas.width-1, canvas.height);
+        ctx.putImageData(imageData, 0, 0);
+
+        // Draw line
+        for (let i = 0; i < bufferLength; i++) {
+          let y = canvas.height-Math.round((i/bufferLength)*canvas.height)-1;
+          let value = dataArray[i];
+          let color = (style.value==='hue'?
+            `hsl(${Math.max(250-Math.pow(value/255,1.5)*360,0)} ${60+Math.pow(value/255,1.5)*20}% ${40+Math.pow(value/255,1.5)*20}%)`:
+            (style.value==='kelvin'?
+              `rgb(${Math.round(Math.min(255,2*value))}, ${Math.round(255-Math.abs(2*value-255))}, ${Math.round(Math.min(255,2*(255-value)))})`:
+              `rgb(${value}, ${value}, ${value})`));
+          ctx.fillStyle = color;
+          ctx.fillRect(canvas.width-1, y, 1, 1);
+        }
+      }
+    </script>
+  </body>
+</html>
