@@ -48,6 +48,7 @@
       <option>jail</option>
       <option value="image-mean">mean</option>
       <option>pixelate</option>
+      <option>sepia</option>
       <option>uncover</option>
       <option>wanted</option>
     </select>
@@ -78,7 +79,7 @@
             }
             res = await res.text();
             try {
-              res = JSON.parse(res)
+              res = JSON.parse(res);
             } catch (err) {
               alert('An error occurred');
               return;
@@ -89,7 +90,7 @@
           })
           .catch(err => {
             alert('An error occurred');
-          })
+          });
       }
     </script>
   </body>
