@@ -371,11 +371,12 @@
         // Time machine
         let clo = 0;
         function clock() {
-          clo += 1;
-          if (clo === 5) {
+          clo = (clo+1)%15;
+          if (clo===0) {
+            document.querySelector('link[rel="stylesheet"]').href = '/media/style.css';
+          } else if (clo === 5) {
             document.querySelector('link[rel="stylesheet"]').href = '/NewStyle.css';
-          }
-          if (clo === 10) {
+          } else if (clo === 10) {
             document.querySelector('link[rel="stylesheet"]').href = '/style.css';
           }
         }
@@ -419,6 +420,7 @@
             <a href="https://pt.fsh.plus"><button>App</button></a>
           </div>
         </div>
+        <br>
         <div class="list">
           <div>
             <span>
