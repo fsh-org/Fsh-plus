@@ -163,8 +163,8 @@
         <h2 class="in"></h2>
       </div>
       <script>
-        let wordings = ['Free','Secure','High-Quality','Fun','Simple','Helpful'];
-        let colors = ['','','','','',''];
+        let wordings = ['Free','Secure','High-Quality','Fun','Simple','Helpful','Fresh','Supportive','Honest','Friendly','Sincere','Hopeful','Flexible','Serious','High-Integrity','Focused','Safe','Handcrafted'];
+        let colors = [];
         let timming = 4000;
         // Events
         let today = new Date();
@@ -173,16 +173,16 @@
           colors = ['','','#e3c712','#e32012'];
         } else if (today.getDate()===22&&today.getMonth()===0) {
           wordings = ['Happy lunar new year!','Let it be great'];
-          colors = ['',''];
+          colors = [];
         } else if (today.getDate()===27&&today.getMonth()===0) {
           wordings = ["It's fsh birthday",'Happy fsh day','much fsh today','/history'];
-          colors = ['','','',''];
+          colors = [];
         } else if (today.getDate()===14&&today.getMonth()===1) {
           wordings = ['Happy valentines','Find that person','that makes you whole'];
           colors = ['#e32012','#e32012','#e32012'];
         } else if (today.getDate()===8&&today.getMonth()===2) {
           wordings = ['Womens day','Woman or Man','They are the same'];
-          colors = ['','',''];
+          colors = [];
         } else if (today.getDate()===14&&today.getMonth()===2) {
           wordings = ['PI day','PIE day','π day','τ/2 day'];
           colors = ['#3243f6','#3243f6','#3243f6','#3243f6'];
@@ -191,7 +191,7 @@
           colors = ['#000000,#a3a3a3,#ffffff,#8d0085','#000000,#a3a3a3,#ffffff,#8d0085'];
         } else if (today.getDate()===22&&today.getMonth()===3) {
           wordings = ['Earth day','Treat it well','cause soon...','you wont be here to see it'];
-          colors = ['','','',''];
+          colors = [];
         } else if (today.getMonth()===5) {
           document.querySelector('.rotating-text .out').innerText = 'Rights for the';
           wordings = ['Gay','Trans','AroAce','Non-Binary','Queer','People'];
@@ -205,39 +205,50 @@
           colors = ['#fff433,#ffffff,#9b59d0,#2d2d2d','#fff433,#ffffff,#9b59d0,#2d2d2d','#fff433,#ffffff,#9b59d0,#2d2d2d'];
         } else if (today.getDate()===8&&today.getMonth()===7) {
           wordings = ['Cat day','Meow','Miau','Nyaa','Niau','Meo meo'];
-          colors = ['','','','','',''];
+          colors = [];
         } else if (today.getDate()===23&&today.getMonth()===8) {
           wordings = ['BI day','bi DAY','BI DAY!','bi day...','BI','day'];
           colors = ['#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8','#d60270,#9b4f96,#0038a8'];
         } else if (today.getDate()===16&&today.getMonth()===9) {
           wordings = ['Bread day','yes, bread day','we love bread day','best day'];
-          colors = ['','','',''];
+          colors = [];
         } else if (today.getDate()===31&&today.getMonth()===9) {
           wordings = ['Boo','did I scare ya?'];
-          colors = ['',''];
+          colors = [];
         } else if (today.getDate()===20&&today.getMonth()===10) {
           wordings = ['Trans Day of Remembrance','For those who died','in search of themselves'];
           colors = ['#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa','#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa','#5bcefa,#f5a9b8,#ffffff,#f5a9b8,#5bcefa'];
         } else if (today.getDate()===10&&today.getMonth()===11) {
           wordings = ['Human rights day','cause people',"don't belive",'in them'];
-          colors = ['','','',''];
+          colors = [];
         } else {
           document.querySelector('.rotating-text .out').innerText = 'Fsh is';
+          // Shuffle
+          for (let i = wordings.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random()*(i+1));
+            let temp = wordings[i];
+            wordings[i] = wordings[j];
+            wordings[j] = temp;
+          }
+          let group = { F: [], S: [], H: [] };
+          wordings.forEach(w=>group[w.slice(0,1)].push(w));
+          wordings = [];
+          group.F.forEach((_,i)=>{wordings=wordings.concat([group.F[i],group.S[i],group.H[i]])});
         }
         // Set words
         document.querySelector('.rotating-text .in').innerHTML = wordings.map(t=>`<span class="word">${t}</span>`).join('');
         // Rotating text by alphardex
-        let words = document.querySelectorAll(".word");
+        let words = document.querySelectorAll('.word');
         words.forEach((word,i) => {
-          let letters = word.textContent.split("");
-          word.textContent = "";
+          let letters = word.textContent.split('');
+          word.textContent = '';
           letters.forEach(letter => {
-            let span = document.createElement("span");
+            let span = document.createElement('span');
             span.textContent = letter;
-            span.className = "letter";
+            span.className = 'letter';
             if (colors[i]) {
               span.style.color = 'transparent';
-              span.style.background = 'linear-gradient('+colors[i]+')';
+              span.style.background = `linear-gradient(${colors[i]})`;
               span.style.backgroundClip = 'text';
             }
             word.append(span);
@@ -246,7 +257,7 @@
 
         let currentWordIndex = 0;
         let maxWordIndex = words.length - 1;
-        words[currentWordIndex].style.opacity = "1";
+        words[currentWordIndex].style.opacity = '1';
 
         let rotateText = () => {
           let currentWord = words[currentWordIndex];
@@ -254,14 +265,14 @@
           nextWord.parentElement.parentElement.style.translate = `-${nextWord.getBoundingClientRect().width/2}px`;
           Array.from(currentWord.children).forEach((letter, i) => {
             setTimeout(() => {
-              letter.className = "letter out";
+              letter.className = 'letter out';
             }, i * 80);
           });
-          nextWord.style.opacity = "1";
+          nextWord.style.opacity = '1';
           Array.from(nextWord.children).forEach((letter, i) => {
-            letter.className = "letter behind";
+            letter.className = 'letter behind';
             setTimeout(() => {
-              letter.className = "letter in";
+              letter.className = 'letter in';
             }, 340 + i * 80);
           });
           currentWordIndex = (currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1);
@@ -298,19 +309,19 @@
           </div>
           <div>
             <span>
-              <p>Fsh Radio</p>
-              <a href="https://github.com/Fsh-org/Fsh-radio"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
-            </span>
-            <p>Listen to songs live with people around the world.</p>
-            <a href="https://radio.fsh.plus"><button>App</button></a>
-          </div>
-          <div>
-            <span>
               <p>Fsh Flash</p>
               <a href="https://github.com/Fsh-org/Fsh-flash"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Online flash emulator.</p>
             <a href="https://flash.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh Radio</p>
+              <a href="https://github.com/Fsh-org/Fsh-radio"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Listen to songs live with people around the world.</p>
+            <a href="https://radio.fsh.plus"><button>App</button></a>
           </div>
           <div>
             <span>
@@ -328,6 +339,23 @@
             </span>
             <p>Easy to use online paint app.</p>
             <a href="https://paint.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh ToDo</p>
+              <a href="https://github.com/Fsh-org/Fsh-todo"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>A simple todo web app.</p>
+            <a href="https://todo.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <img alt="Fsh link logo" src="/media/logos/link.png">
+              <p>Fsh Link</p>
+              <a href="https://github.com/Fsh-org/Fsh-link"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Online link shortener.</p>
+            <a href="https://link.fsh.plus"><button>Website</button></a>
           </div>
           <div>
             <span>
@@ -353,36 +381,6 @@
         }
       </script>
       <section>
-        <h3>Tools</h3>
-        <div class="list">
-          <div>
-            <span>
-              <p>Fsh ToDo</p>
-              <a href="https://github.com/Fsh-org/Fsh-todo"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
-            </span>
-            <p>A simple todo web app.</p>
-            <a href="https://todo.fsh.plus"><button>App</button></a>
-          </div>
-          <div>
-            <span>
-              <img alt="Fsh link logo" src="/media/logos/link.png">
-              <p>Fsh Link</p>
-              <a href="https://github.com/Fsh-org/Fsh-link"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
-            </span>
-            <p>Online link shortener.</p>
-            <a href="https://link.fsh.plus"><button>Website</button></a>
-          </div>
-          <div>
-            <span>
-              <p>Fsh HTML</p>
-              <a href="https://github.com/Fsh-org/Fsh-html"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
-            </span>
-            <p>Live html editor on the browser.</p>
-            <a href="https://html.fsh.plus/"><button>App</button></a>
-          </div>
-        </div>
-      </section>
-      <section>
         <h3>Development</h3>
         <div class="list">
           <div>
@@ -406,6 +404,14 @@
           </div>
           <div>
             <span>
+              <p>Fsh HTML</p>
+              <a href="https://github.com/Fsh-org/Fsh-html"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Live html editor on the browser.</p>
+            <a href="https://html.fsh.plus/"><button>App</button></a>
+          </div>
+          <div>
+            <span>
               <p>Fsh PT</p>
               <a href="https://github.com/Fsh-org/Fsh-pt"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
@@ -413,9 +419,6 @@
             <a href="https://pt.fsh.plus"><button>App</button></a>
           </div>
         </div>
-      </section>
-      <section>
-        <h3>JS Packages</h3>
         <div class="list">
           <div>
             <span>
