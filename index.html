@@ -135,15 +135,14 @@
     </style>
     <script>
       if (!window.matchMedia(`(prefers-reduced-motion: reduce)`).matches) {
-        window.addEventListener("load", function() {
-          let body = document.body;
-          body.style.setProperty('--a', 'fixed');
-          body.style.setProperty('--b', '20%');
-          body.onpointermove = function(event) {
-            body.style.setProperty('--x', event.clientX+'px');
-            body.style.setProperty('--y', event.clientY+'px');
-          }
-        })
+        window.addEventListener('load', ()=>{
+          document.body.style.setProperty('--a', 'fixed');
+          document.body.style.setProperty('--b', '20%');
+          document.body.onpointermove = (event)=>{
+            document.body.style.setProperty('--x', event.clientX+'px');
+            document.body.style.setProperty('--y', event.clientY+'px');
+          };
+        });
       }
     </script>
   </head>
@@ -292,7 +291,7 @@
             <span>
               <img alt="Fsh Bot logo" src="/fsh.png" onclick="clock()">
               <p>Fsh Bot</p>
-              <a href="https://github.com/Fsh-org/Fsh-bot"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-bot"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Discord bot for your users that brings activity.</p>
             <a href="https://bot.fsh.plus/invite"><button>Invite</button></a>
@@ -302,7 +301,7 @@
             <span>
               <img alt="Fsh Chat logo" src="/media/logos/chat.png">
               <p>Fsh Chat</p>
-              <a href="https://github.com/Fsh-org/Fsh-chat"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-chat"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Private and feature-full browser chat app.</p>
             <a href="https://chat.fsh.plus"><button>App</button></a>
@@ -311,41 +310,25 @@
             <span>
               <img alt="Fsh Flash logo" src="/media/logos/flash.png">
               <p>Fsh Flash</p>
-              <a href="https://github.com/Fsh-org/Fsh-flash"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-flash"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Online flash emulator.</p>
             <a href="https://flash.fsh.plus"><button>App</button></a>
           </div>
           <div>
             <span>
-              <p>Fsh Radio</p>
-              <a href="https://github.com/Fsh-org/Fsh-radio"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
-            </span>
-            <p>Listen to songs live with people around the world.</p>
-            <a href="https://radio.fsh.plus"><button>App</button></a>
-          </div>
-          <div>
-            <span>
               <img alt="Fsh Storage logo" src="/media/logos/storage.jpg">
               <p>Fsh Storage</p>
-              <a href="https://github.com/Fsh-org/Fsh-storage"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-storage"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Easy online file storage.</p>
             <a href="https://storage.fsh.plus"><button>App</button></a>
           </div>
           <div>
             <span>
-              <p>Fsh Paint</p>
-              <a href="https://github.com/Fsh-org/Fsh-paint"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
-            </span>
-            <p>Easy to use online paint app.</p>
-            <a href="https://paint.fsh.plus"><button>App</button></a>
-          </div>
-          <div>
-            <span>
               <img alt="Fsh ToDo logo" src="/media/logos/todo.png">
               <p>Fsh ToDo</p>
-              <a href="https://github.com/Fsh-org/Fsh-todo"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-todo"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Simple and organized online todo app.</p>
             <a href="https://todo.fsh.plus"><button>App</button></a>
@@ -354,18 +337,51 @@
             <span>
               <img alt="Fsh Link logo" src="/media/logos/link.png">
               <p>Fsh Link</p>
-              <a href="https://github.com/Fsh-org/Fsh-link"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-link"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Online link shortener.</p>
             <a href="https://link.fsh.plus"><button>Website</button></a>
           </div>
           <div>
             <span>
+              <p>Fsh Paint</p>
+              <a href="https://github.com/fsh-org/Fsh-paint"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Easy to use online paint app.</p>
+            <a href="https://paint.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh Radio</p>
+              <a href="https://github.com/fsh-org/Fsh-radio"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Listen to songs live with people around the world.</p>
+            <a href="https://radio.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
               <p>Fsh REM</p>
-              <a href="https://github.com/Fsh-org/Fsh-rem"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-rem"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>View recent earthquakes around the world.</p>
             <a href="https://rem.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <img alt="Fshcord logo" src="/media/logos/fshcord.png">
+              <p>Fshcord</p>
+              <a href="https://github.com/fsh-org/Fshcord"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Open and light-weight alternative discord client.</p>
+            <a href="https://fshcord.fsh.plus"><button>App</button></a>
+          </div>
+          <div>
+            <span>
+              <p>Fsh Counters</p>
+              <a href="https://github.com/fsh-org/Fsh-Counters"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+            </span>
+            <p>Easy, free, and online counter app.</p>
+            <a href="https://counters.fsh.plus"><button>App</button></a>
           </div>
         </div>
       </section>
@@ -390,7 +406,7 @@
             <span>
               <img alt="Fsh API logo" src="/media/logos/api.png">
               <p>Fsh API</p>
-              <a href="https://github.com/Fsh-org/Fsh-api"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-api"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Reliable and fast api with lots of endpoints.</p>
             <a href="https://api.fsh.plus"><button>Website</button></a>
@@ -399,7 +415,7 @@
             <span>
               <img alt="HTMS logo" src="/media/logos/htms.svg">
               <p>HTMS</p>
-              <a href="https://github.com/Fsh-org/HTMS"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/HTMS"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Divide your HTML in reusable samples.</p>
             <a href="https://htms.fsh.plus/"><button>Website</button></a>
@@ -408,7 +424,7 @@
           <div>
             <span>
               <p>Fsh HTML</p>
-              <a href="https://github.com/Fsh-org/Fsh-html"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-html"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Live html editor on the browser.</p>
             <a href="https://html.fsh.plus/"><button>App</button></a>
@@ -416,7 +432,7 @@
           <div>
             <span>
               <p>Fsh PT</p>
-              <a href="https://github.com/Fsh-org/Fsh-pt"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Fsh-pt"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Alternative user and application api ui.</p>
             <a href="https://pt.fsh.plus"><button>App</button></a>
@@ -427,7 +443,7 @@
           <div>
             <span>
               <p>FshDB</p>
-              <a href="https://github.com/Fsh-org/FshDB"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/FshDB"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>A lightweight & fast json database.</p>
             <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
@@ -435,7 +451,7 @@
           <div>
             <span>
               <p>Server HTMS</p>
-              <a href="https://github.com/Fsh-org/Server-HTMS"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/Server-HTMS"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>A server version of htms.</p>
             <a href="https://www.npmjs.com/package/fshdb"><button>NPM</button></a>
@@ -443,7 +459,7 @@
           <div>
             <span>
               <p>rMQR</p>
-              <a href="https://github.com/Fsh-org/rmqr"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
+              <a href="https://github.com/fsh-org/rmqr"><img src="/media/github.png" target="_blank" alt="Github" width="20" height="20"/></a>
             </span>
             <p>Rectangular Micro QR code generator for node.</p>
             <a href="https://www.npmjs.com/package/rmqr"><button>NPM</button></a>
