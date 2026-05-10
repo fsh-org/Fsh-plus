@@ -46,9 +46,9 @@
       header {
         padding: 20px;
         text-align: center;
-        background-color: var(--bg-0);
+        background-color: var(--bg-0, var(--bg-dim));
         background-attachment: var(--a, local);
-        background-image: radial-gradient(circle at var(--x) var(--y), var(--bg-2) 0%, var(--bg-0) 20%);
+        background-image: radial-gradient(circle at var(--x) var(--y), var(--bg-2, var(--bg-light)) 0%, var(--bg-0, var(--bg-dim)) 20%);
       }
 
       .list {
@@ -66,9 +66,9 @@
         flex-grow: 0;
         flex-shrink: 0;
         position: relative;
-        background-color: var(--bg-2);
+        background-color: var(--bg-2, var(--bg-light));
         background-attachment: var(--a, local);
-        background-image: radial-gradient(circle at var(--x, 0px) var(--y, 0px), var(--bg-3) 0%, var(--bg-2) var(--b, 50%));
+        background-image: radial-gradient(circle at var(--x, 0px) var(--y, 0px), var(--bg-3) 0%, var(--bg-2, var(--bg-light)) var(--b, 50%));
       }
       .list div span {
         display: flex;
@@ -78,19 +78,15 @@
       .list div span p {
         font-weight: bold;
       }
-      .list div img {
+      .list div span > img {
         height: 24px;
       }
 
       img[alt="Github"] {
         position: absolute;
-        top: 8px;
-        right: 8px;
-        height: 20px !important;
+        top: 5px;
+        right: 5px;
         border-radius: 1rem;
-      }
-      img[alt="NPM Version"] {
-        height: 20px !important;
       }
 
       .devs {
