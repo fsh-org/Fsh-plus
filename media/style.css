@@ -65,7 +65,7 @@ h3, h4, h5, h6 {
   margin-top: 1em;
 }
 hr, iframe {
-  color: var(--text-2);
+  color: var(--bg-3);
   border-color: currentColor;
   border-style: solid;
 }
