@@ -164,11 +164,12 @@ button {
   font-family: inherit;
   color: var(--text-1);
   padding: 5px;
-  outline: none;
   border: 2px var(--text-1) solid;
   border-radius: 0.5rem;
-  transition: var(--time-1);
   background-color: transparent;
+  transition-property: color, background, border;
+  transition-duration: var(--time-1);
+  outline: 0px solid currentColor;
 }
 button:not([disabled]):hover {
   color: var(--bg-1);
@@ -177,13 +178,13 @@ button:not([disabled]):hover {
 input:not([type=range]), textarea, select {
   margin: 5px;
   padding: 5px;
-  outline: none;
   font-family: inherit;
   caret-color: auto;
   color: var(--text-1);
   border-radius: 0.75rem;
   border: 2px var(--text-1) solid;
   background-color: transparent;
+  outline: 0px solid currentColor;
 }
 input[type=color] {
   padding: 0px;
@@ -201,7 +202,7 @@ input::placeholder, textarea::placeholder {
 }
 select {
   cursor: pointer;
-  padding: 2px;
+  padding: 4px;
   border-radius: 0.5rem;
 }
 option {
@@ -216,7 +217,7 @@ button[disabled], input[disabled], textarea[disabled], select[disabled] {
   border: 2px currentColor solid;
   opacity: 1;
 }
-button:focus-within, input:focus-within, textarea:focus-within, select:focus-within {
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
   outline: 1px solid currentColor;
 }
 
