@@ -19,8 +19,10 @@
   --white-2: #bbb;
   --red-1: oklch(0.6187 0.2311 20.83);
   --red-2: oklch(0.3813 0.1311 20.83);
-  --yellow-1: oklch(0.8116 0.1543 94.54);
-  --yellow-2: oklch(0.5504 0.1043 94.54);
+  --orange-1: oklch(0.71 0.1543 54.42);
+  --orange-2: oklch(0.5 0.1043 54.42);
+  --yellow-1: oklch(0.84 0.17 102.79);
+  --yellow-2: oklch(0.55 0.14 102.79);
   --green-1: oklch(0.8027 0.2256 140.47);
   --green-2: oklch(0.4377 0.1256 140.47);
   --blue-1: oklch(0.6869 0.1663 245.16);
@@ -99,6 +101,15 @@ dialog {
 ::backdrop {
   backdrop-filter: blur(2px);
 }
+.modal-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+}
 
 /* -- Scrollbar -- */
 ::-webkit-scrollbar {
@@ -159,11 +170,6 @@ button {
   transition: var(--time-1);
   background-color: transparent;
 }
-button[disabled] {
-  cursor: not-allowed;
-  color: var(--text-3);
-  border: 2px currentColor solid;
-}
 button:not([disabled]):hover {
   color: var(--bg-1);
   background-color: var(--text-1);
@@ -204,8 +210,14 @@ option {
 option:disabled {
   background-color: var(--bg-0);
 }
+button[disabled], input[disabled], textarea[disabled], select[disabled] {
+  cursor: not-allowed;
+  color: var(--text-3);
+  border: 2px currentColor solid;
+  opacity: 1;
+}
 button:focus-within, input:focus-within, textarea:focus-within, select:focus-within {
-  outline: 1px solid var(--text-0);
+  outline: 1px solid currentColor;
 }
 
 /* Accessibility */
