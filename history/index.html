@@ -41,15 +41,20 @@
         width: fit-content;
         min-width: 35vw;
         padding: 1rem;
-        margin-left: 5rem;
-        margin-right: 5rem;
-        margin-top: 15vh;
-        margin-bottom: 0;
-        border: #fff 3px solid;
+        margin: 10dvh 5rem 0px;
+        border: 3px var(--bg-3) solid;
         border-radius: 0.75rem;
       }
-      .item:nth-child(odd) {
+      .item:nth-child(even of .item) {
         margin-left: auto;
+      }
+
+      .whos-message {
+        color: mediumorchid;
+        font-style: italic;
+        font-family: serif;
+        font-size: 50%;
+        width: 80%;
       }
 
       .title {
@@ -104,11 +109,24 @@
       <p>This is the first version stored in the <a href="https://web.archive.org/web/20230702182142/https://fsh.plus/" target="_blank">wayback machine</a> on July 2, 2023.</p>
       <img src="/history/oldfshsite.png" width="200" style="width:35vw">
     </div>
+    <p class="whos-message">Need some guidance? The original message under the waves with <a href="./grid.png">this</a>.</p>
+    <div class="fade item">
+      <h2>Growth</h2>
+      <p>The next releases (in order): Fsh Radio, Fsh Chat, HTMS (formely S-HTML), Fsh Link, Fsh HTML, and Fsh ToDo.</p>
+    </div>
+    <div class="fade item">
+      <h2>Modern layout</h2>
+      <p>In the second half of 2024 the current layout of the main page was made.</p>
+    </div>
+    <div class="fade item">
+      <h2>More growth</h2>
+      <p>More releases: Fsh PT, Fsh Flash, Fsh Storage (New one), Fsh REM, Fsh Paint, Fshcord, and Fsh Counters.</p>
+    </div>
     <div class="fade item">
       <h2>More Fsh</h2>
       <p>.</p>
     </div>
-    <div class="fade item">Im lazy, more later</div>
+    <div class="fade item">Lazy, more later</div>
 
     <script>
       function callbackFunc(entries, observer) {
