@@ -21,10 +21,10 @@
   --red-2: oklch(0.3813 0.1311 20.83);
   --orange-1: oklch(0.71 0.1543 54.42);
   --orange-2: oklch(0.5 0.1043 54.42);
-  --yellow-1: oklch(0.84 0.17 102.79);
+  --yellow-1: oklch(0.86 0.17 102.79);
   --yellow-2: oklch(0.55 0.14 102.79);
-  --green-1: oklch(0.8027 0.2256 140.47);
-  --green-2: oklch(0.4377 0.1256 140.47);
+  --green-1: oklch(0.78 0.23 140.47);
+  --green-2: oklch(0.44 0.13 140.47);
   --blue-1: oklch(0.6869 0.1663 245.16);
   --blue-2: oklch(0.4618 0.1163 245.16);
   --purple-1: oklch(0.647 0.2487 308.19);
@@ -208,10 +208,7 @@ select {
 option {
   background-color: var(--bg-1);
 }
-option:disabled {
-  background-color: var(--bg-0);
-}
-button[disabled], input[disabled], textarea[disabled], select[disabled] {
+button:disabled, input:disabled, textarea:disabled, select:disabled {
   cursor: not-allowed;
   color: var(--text-3);
   border: 2px currentColor solid;
