@@ -3,13 +3,12 @@ allow: /
 allow: /tos
 allow: /pp
 allow: /branding
-allow: /tool/*
+allow: /tool/
+allow: /history
 disallow: /old
-disallow: /old/*
 disallow: /game
 disallow: /geiger
-disallow: /history
-disallow: /cdn-cgi/*
+disallow: /cdn-cgi
 
 user-agent: france
 disallow: /baguette
